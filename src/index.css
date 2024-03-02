@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+a {
+  width: fit-content;
+  cursor: pointer;
+}
+.sections-title {
+  @apply text-xl lg:text-3xl font-semibold;
+}
+.translate-50 {
+  @apply -translate-x-2/4 -translate-y-2/4;
+}
+.nav-icon {
+  @apply p-[14px] bg-white rounded-full flex items-center justify-center cursor-pointer;
+}
+.nav-sidebar {
+  @apply py-2 px-6 bg-[#EEEDED] rounded-[10px] text-sm lg:text-xl font-semibold;
+}
+a.nav-sidebar.active {
+  @apply bg-linarOrange text-white border border-white shadow-[0px_4px_4px_0px_rgba(0,0,0,.25)];
+}
+.btn {
+  @apply p-2 text-white bg-[#FFB12A] rounded-lg cursor-pointer;
+}
+.ourAdvantages-icon {
+  @apply w-[72px] h-[72px] mx-auto rounded-full flex items-center justify-center;
+}
+.ourAdvantages {
+  @apply flex flex-col items-center gap-5 md:flex-row lg:mx-5;
+}
