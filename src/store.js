@@ -1,12 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
+import productsReducer from "./productsSlice";
 import categoryReducer from "./features/categories/categorySlice";
-import newProductsReducer from "./features/new/newProductsSlice";
 import popularProductsReducer from "./features/popularProducts/popularProductsSlice";
 
 const store = configureStore({
   reducer: {
+    products: productsReducer,
     categories: categoryReducer,
-    newProducts: newProductsReducer,
     popularProducts: popularProductsReducer,
   },
 });

@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCategories } from "./categorySlice";
-import { Link } from "react-router-dom";
 import SectionTitle from "../../ui/SectionTitle";
+import CategoryCard from "./CategoryCard";
+import { getCategories } from "../../services/apiProducts";
 
 const Categories = () => {
   const { categories } = useSelector((state) => state.categories);
@@ -20,17 +20,7 @@ const Categories = () => {
           if (i > 6) {
             return null;
           } else {
-            return (
-              <div
-                key={category.id}
-                className="min-w-[140px] h-[170px] lg:w-[170px] lg:h-[200px] flex flex-col bg-white rounded-xl p-3 cursor-pointer"
-              >
-                <div className="flex flex-1 items-center justify-center w-full h-full">
-                  <img src={category.image} className="max-w-[110px]" />
-                </div>
-                <p className="text-center line-clamp-2">{category.name}</p>
-              </div>
-            );
+            return <CategoryCard key={category.id} category={category} />;
           }
         })}
       </div>

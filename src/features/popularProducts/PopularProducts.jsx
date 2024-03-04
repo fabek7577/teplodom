@@ -16,18 +16,18 @@ const PopularProducts = () => {
       <SectionTitle to={"popular"}>
         Популярные товары <span>Все →</span>
       </SectionTitle>
-      <div className="flex overflow-x-scroll xl:justify-between xl:overflow-x-auto gap-4 py-5">
+      <div className="flex overflow-x-scroll lg:grid grid-cols-4 xl:overflow-x-auto gap-4 py-5">
         {popularProducts?.map((product, i) => {
-          if (i >= 5) {
+          if (i >= 4) {
             return null;
           } else {
             return <ProductCard key={product.id} product={product} />;
           }
         })}
       </div>
-      <div className="flex overflow-x-scroll xl:justify-between xl:overflow-x-auto gap-4 py-5">
+      <div className="flex overflow-x-scroll lg:grid grid-cols-4 xl:overflow-x-auto gap-4 py-5">
         {popularProducts?.map((product, i) => {
-          if (i <= 5 || i > 10) {
+          if (i <= 4 || i > 8) {
             return null;
           } else {
             return <ProductCard key={product.id} product={product} />;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import RootLayout from "./layout/RootLayout";
 import Home from "./components/Home";
@@ -6,9 +6,16 @@ import AllNewProducts from "./features/new/AllNewProducts";
 import AllCategories from "./features/categories/AllCategories";
 import AllPopularProducts from "./features/popularProducts/AllPopularProducts";
 import ToProviders from "./components/ToProviders";
-
+import CategoryProducts from "./features/categories/CategoryProducts";
+import { useDispatch } from "react-redux";
+import { getProducts } from "./services/apiProducts";
+import OnSaleProducts from "./features/sale/OnSaleProducts";
 
 const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getProducts());
+  }, []);
   const router = createBrowserRouter([
     {
       path: "/",
@@ -27,12 +34,20 @@ const App = () => {
           element: <AllCategories />,
         },
         {
+          path: "categories/:category",
+          element: <CategoryProducts />,
+        },
+        {
           path: "popular",
           element: <AllPopularProducts />,
         },
         {
           path: "toProviders",
           element: <ToProviders />,
+        },
+        {
+          path: "sale",
+          element: <OnSaleProducts />,
         },
       ],
     },

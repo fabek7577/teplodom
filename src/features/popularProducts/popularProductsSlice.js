@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    popularProducts: [],
+  popularProducts: [],
 };
 
 const popularProductSlice = createSlice({
@@ -9,12 +9,16 @@ const popularProductSlice = createSlice({
   initialState,
   reducers: {
     getPopularProducts: (state, { payload }) => {
-      state.popularProducts = payload;
+      payload.map((product) => {
+        if (product.rating >= 4.5) {
+          state.popularProducts = [...state.popularProducts, product];
+        }
+      });
     },
   },
 });
 
-export const {  } = popularProductSlice.actions;
+export const {} = popularProductSlice.actions;
 
 export default popularProductSlice.reducer;
 

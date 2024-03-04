@@ -29,10 +29,10 @@ export function CarouselCustomNavigation() {
           className="w-[120px] md:w-[150px] lg:w-[240px] h-fit object-cover lg:order-2"
         />
         <div className="flex flex-col gap-3 lg:order-1">
-          <h1 className="text-xl font-bold md:text-2xl lg:text-5xl">
+          <h1 className="text-xl font-bold md:text-2xl lg:text-4xl xl:text-5xl">
             Пеноплекс Основа
           </h1>
-          <p className="text-sm md:text-lg lg:text-2xl">
+          <p className="text-sm md:text-lg lg:text-xl xl:text-2xl">
             <span className="lg:hidden">
               производитель тепло- и гидроизоляционных материалов.
             </span>
@@ -53,10 +53,10 @@ export function CarouselCustomNavigation() {
           className="w-[120px] md:w-[150px] lg:w-[240px] h-fit object-cover lg:order-2"
         />
         <div className="flex flex-col gap-3 lg:order-1">
-          <h1 className="text-xl font-bold md:text-2xl lg:text-5xl">
+          <h1 className="text-xl font-bold lg:text-4xl xl:text-5xl">
             Гипсакартон
           </h1>
-          <p className="text-sm md:text-lg lg:text-2xl">
+          <p className="text-sm md:text-lg lg:text-xl xl:text-2xl">
             <span className="lg:hidden">
               Cтроительный материал, представляющий собой лист состоящий из двух
               слоёв
@@ -85,10 +85,10 @@ export function CarouselCustomNavigation() {
         </div>
 
         <div className="flex flex-col gap-3 lg:order-1 lg:ps-4">
-          <h1 className="text-xl font-bold md:text-2xl lg:text-5xl">
+          <h1 className="text-xl font-bold lg:text-4xl xl:text-5xl">
             Basalt wool
           </h1>
-          <p className="text-sm md:text-lg lg:text-2xl">
+          <p className="text-sm md:text-lg lg:text-xl xl:text-2xl">
             <span className="lg:hidden">
               Базальтовое волокно представляет собой материал, изготовленный из
               чрезвычайно тонких волокон
@@ -109,10 +109,10 @@ export function CarouselCustomNavigation() {
           className="w-[120px] md:w-[150px] lg:w-[240px] h-fit object-cover lg:order-2"
         />
         <div className="flex flex-col gap-3 lg:order-1">
-          <h1 className="text-xl font-bold md:text-2xl lg:text-5xl">
+          <h1 className="text-xl font-bold lg:text-4xl xl:text-5xl">
             Финская Фанера
           </h1>
-          <p className="text-sm md:text-lg lg:text-2xl">
+          <p className="text-sm md:text-lg lg:text-xl xl:text-2xl">
             <span className="lg:hidden">
               Этоть материал изготавливаемый путём склеивания специально
               подготовленного шпона.

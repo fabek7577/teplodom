@@ -6,6 +6,9 @@ a {
   width: fit-content;
   cursor: pointer;
 }
+.productCard {
+  @apply relative min-w-[210px] h-[330px] xl:w-[300px] xl:h-[410px] flex flex-col justify-between gap-2 bg-white rounded-xl p-3;
+}
 .sections-title {
   @apply text-xl lg:text-3xl font-semibold;
 }
