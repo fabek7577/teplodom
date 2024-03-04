@@ -10,6 +10,9 @@ import CategoryProducts from "./features/categories/CategoryProducts";
 import { useDispatch } from "react-redux";
 import { getProducts } from "./services/apiProducts";
 import OnSaleProducts from "./features/sale/OnSaleProducts";
+import ProductDetail, {
+  loader as productItemLoader,
+} from "./features/productItem/ProductDetail";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -48,6 +51,11 @@ const App = () => {
         {
           path: "sale",
           element: <OnSaleProducts />,
+        },
+        {
+          path: "products/:productId",
+          element: <ProductDetail />,
+          loader: productItemLoader,
         },
       ],
     },

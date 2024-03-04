@@ -9,11 +9,13 @@ const popularProductSlice = createSlice({
   initialState,
   reducers: {
     getPopularProducts: (state, { payload }) => {
-      payload.map((product) => {
-        if (product.rating >= 4.5) {
-          state.popularProducts = [...state.popularProducts, product];
-        }
-      });
+      if (state.popularProducts.length == 0) {
+        payload.map((product) => {
+          if (product.rating >= 4.5) {
+            state.popularProducts = [...state.popularProducts, product];
+          }
+        });
+      }
     },
   },
 });

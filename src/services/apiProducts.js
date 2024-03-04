@@ -1,5 +1,13 @@
 const API_URL = "http://localhost:3333";
 
+export async function getProduct(productId) {
+  const res = await fetch(`${API_URL}/products/${productId}`);
+  // fetch won't throw error on 400 errors (e.g. when URL is wrong), so we need to do it manually. This will then go into the catch block, where the message is set
+  if (!res.ok) throw Error("Failed getting product item");
+
+  const data = await res.json();
+  return data;
+}
 
 export function getProducts() {
   return async function (dispatch) {

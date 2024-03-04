@@ -33,3 +33,6 @@ a.nav-sidebar.active {
 .ourAdvantages {
   @apply flex flex-col items-center gap-5 md:flex-row lg:mx-5;
 }
+.productDetail-icon {
+  @apply flex items-center justify-center border-2 border-black rounded-lg p-2 hover:bg-yellow hover:border-yellow active:ring-2 outline-none ring-yellow ring-offset-2 cursor-pointer md:w-[50px] md:h-[50px] xl:w-[64px] xl:h-[64px];
+}
