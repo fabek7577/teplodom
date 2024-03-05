@@ -12,7 +12,7 @@ const Navbar = () => {
     <nav className="container py-5 flex flex-col gap-10">
       <div className="flex items-center justify-between flex-wrap md:flex-nowrap gap-5">
         <Link to={"/"} className="flex items-center gap-2 cursor-pointer md:order-1">
-          <img src={logo} alt="Navbar logo" />
+          <img src={logo} alt="Navbar logo" className="w-14 sm:w-[70px]" />
           <div className="text-center">
             <h1 className="bg-linarOrange bg-clip-text text-transparent text-lg lg:text-2xl font-semibold tracking-wider">
               TEPLODOM
