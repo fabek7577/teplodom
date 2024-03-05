@@ -10,7 +10,7 @@ import loc from "../assets/footer/loc.svg";
 const Footer = () => {
   const date = new Date();
   return (
-    <footer className="relative lg:flex justify-between gap-32 p-4 pb-10 lg:p-8 text-white">
+    <footer className="relative lg:flex justify-between gap-32 p-4 pb-16 lg:p-8 text-white">
       <div className="mb-9">
         <div className="flex items-center gap-2 cursor-pointer mb-3">
           <img src={logof} alt="Navbar logo" />
@@ -68,7 +68,7 @@ const Footer = () => {
           ул.Уста Ширин, рынок <br /> Джамий, дом 134
         </span>
       </div>
-      <div className="absolute bottom-0 left-2/4 -translate-x-2/4 flex py-4 lg:pb-4">
+      <div className="absolute bottom-0 left-2/4 -translate-x-2/4 w-full flex justify-center py-4 lg:pb-4">
         © {date.getFullYear()} Teplodom. Все права защищены
       </div>
     </footer>
