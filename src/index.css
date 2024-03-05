@@ -7,7 +7,7 @@ a {
   cursor: pointer;
 }
 .productCard {
-  @apply relative min-w-[210px] h-[330px] xl:w-[255px] xl:h-[400px] flex flex-col justify-between gap-2 bg-white rounded-xl p-3 xl:px-[15px] xl:py-[28px];
+  @apply relative min-w-[210px] h-[330px] xl:w-[255px] xl:h-[400px] flex flex-col bg-white rounded-xl p-3 xl:px-[15px] lg:px-5 xl:py-[28px];
 }
 .sections-title {
   @apply text-xl lg:text-3xl font-semibold;
@@ -25,7 +25,7 @@ a.nav-sidebar.active {
   @apply bg-linarOrange text-white border border-white shadow-[0px_4px_4px_0px_rgba(0,0,0,.25)];
 }
 .btn {
-  @apply p-2 text-white bg-[#FFB12A] rounded-lg cursor-pointer;
+  @apply text-white bg-[#FFB12A] rounded-lg cursor-pointer;
 }
 .ourAdvantages-icon {
   @apply w-[72px] h-[72px] mx-auto rounded-full flex items-center justify-center;

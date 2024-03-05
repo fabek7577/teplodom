@@ -21,14 +21,14 @@ const ProductCard = ({ product, sale }) => {
       </div>
       <Link
         to={`/products/${product.id}`}
-        className="line-clamp-2 xl:line text-sm xl:text-md xl:h-[40px] hover:underline"
+        className="flex-1 mt-4 md:mt-[18px] line-clamp-2 xl:leading-[18px] text-sm xl:text-md xl:h-[40px] hover:underline"
       >
         {product.title}
       </Link>
       {/* PRICE */}
       <div className="">
         {sale && (
-          <p className="text-red-500 line-through">
+          <p className="text-sm xl:text-md leading-[5px] text-red-500 line-through">
             {price.toLocaleString()} сум
           </p>
         )}
@@ -38,12 +38,12 @@ const ProductCard = ({ product, sale }) => {
         </p>
       </div>
 
-      <div className="flex justify-between">
-        <button className="btn flex items-center gap-3 lg:px-5">
-          <img src={basket} style={{color: "red"}} />
+      <div className="flex justify-between mt-[18px]">
+        <button className="btn flex items-center gap-3 xl:gap-[18px] py-2 px-3 lg:px-4 xl:px-7">
+          <img src={basket} />
           <span>В корзину</span>
         </button>
-        <button className="btn">
+        <button className="btn p-2">
           <img src={like} />
         </button>
       </div>
