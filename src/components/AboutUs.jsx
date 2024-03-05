@@ -28,7 +28,7 @@ const AboutUs = () => {
       <div className="mt-12 w-full h-full flex items-center justify-center">
         <img
           src={aboutUs}
-          className="max-w-[500px] md:max-w-[300px] lg:max-w-[500px] h-full object-cover"
+          className="max-w-full md:max-w-[300px] lg:max-w-[500px] h-full object-cover"
         />
       </div>
     </section>
