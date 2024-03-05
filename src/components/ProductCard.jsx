@@ -39,7 +39,7 @@ const ProductCard = ({ product, sale }) => {
       </div>
 
       <div className="flex justify-between">
-        <button className="btn flex items-center gap-3 xl:px-5">
+        <button className="btn flex items-center gap-3 lg:px-5">
           <img src={basket} style={{color: "red"}} />
           <span>В корзину</span>
         </button>

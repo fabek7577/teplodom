@@ -25,13 +25,13 @@ const Navbar = () => {
 
         <div className="flex gap-5 md:gap-3 lg:gap-5 items-center justify-center md:order-3">
           <div className="nav-icon">
-            <img src={like} alt="navbar likes" className="w-4 sm:w-7" />
+            <img src={like} alt="navbar likes" className="w-6 sm:w-7" />
           </div>
           <div className="nav-icon">
-            <img src={basket} alt="navbar basket" className="w-4 sm:w-7" />
+            <img src={basket} alt="navbar basket" className="w-6 sm:w-7" />
           </div>
           <div className="nav-icon flex gap-4 lg:rounded-lg">
-            <img src={person} alt="navbar person" className="w-4 sm:w-7" />
+            <img src={person} alt="navbar person" className="w-6 sm:w-7" />
             <span className="text-lg hidden lg:inline">Профиль</span>
           </div>
         </div>

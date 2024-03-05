@@ -7,7 +7,7 @@ a {
   cursor: pointer;
 }
 .productCard {
-  @apply relative min-w-[210px] h-[330px] xl:w-[300px] xl:h-[410px] flex flex-col justify-between gap-2 bg-white rounded-xl p-3;
+  @apply relative min-w-[210px] h-[330px] xl:w-[255px] xl:h-[400px] flex flex-col justify-between gap-2 bg-white rounded-xl p-3 xl:px-[15px] xl:py-[28px];
 }
 .sections-title {
   @apply text-xl lg:text-3xl font-semibold;
