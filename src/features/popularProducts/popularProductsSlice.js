@@ -26,7 +26,7 @@ export default popularProductSlice.reducer;
 
 export function getPopularProducts() {
   return async function (dispatch) {
-    const res = await fetch(`http://localhost:3333/products`);
+    const res = await fetch(`https://teplodomdata.onrender.com/products`);
     const data = await res.json();
     dispatch({ type: "popularProducts/getPopularProducts", payload: data });
   };

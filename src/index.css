@@ -16,7 +16,7 @@ a {
   @apply -translate-x-2/4 -translate-y-2/4;
 }
 .nav-icon {
-  @apply p-[14px] bg-white rounded-full flex items-center justify-center cursor-pointer;
+  @apply p-2 sm:p-[14px] bg-white rounded-full flex items-center justify-center cursor-pointer;
 }
 .nav-sidebar {
   @apply py-2 px-6 bg-[#EEEDED] rounded-[10px] text-sm lg:text-xl font-semibold;
