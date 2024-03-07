@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3333";
+const API_URL = "https://teplodomdata.onrender.com";
 
 export async function getProduct(productId) {
   const res = await fetch(`${API_URL}/products/${productId}`);
