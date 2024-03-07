@@ -13,6 +13,8 @@ import OnSaleProducts from "./features/sale/OnSaleProducts";
 import ProductDetail, {
   loader as productItemLoader,
 } from "./features/productItem/ProductDetail";
+import BasketProductsList from "./features/navbar/basket/BasketProductsList";
+import FavouritesProductsList from "./features/navbar/favourites/FavouritesProductsList";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -43,6 +45,14 @@ const App = () => {
         {
           path: "popular",
           element: <AllPopularProducts />,
+        },
+        {
+          path: "basket",
+          element: <BasketProductsList />,
+        },
+        {
+          path: "favourites",
+          element: <FavouritesProductsList />,
         },
         {
           path: "toProviders",

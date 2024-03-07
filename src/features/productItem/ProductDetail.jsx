@@ -23,9 +23,7 @@ const ProductDetail = () => {
   return (
     <div className="container my-14">
       <div className="bg-white px-4 py-6 rounded-xl border lg:border-none">
-        <div
-          className="lg:flex items-center justify-between gap-8"
-        >
+        <div className="lg:flex items-center justify-between gap-8">
           <h1 className="font-bold text-3xl mb-14 lg:hidden">
             {product.title}
           </h1>
@@ -35,7 +33,7 @@ const ProductDetail = () => {
               className="w-full md:max-w-[500px] max-h-full object-contain"
             />
           </div>
-          <div className="flex flex-col justify-center mt-14 lg:mt-0">
+          <div className="flex flex-col justify-center mt-14 lg:mt-0 w-2/3">
             <h1 className="hidden lg:inline-block font-bold text-3xl xl:text-5xl mb-14">
               {product.title}
             </h1>
@@ -85,7 +83,9 @@ const ProductDetail = () => {
               <div className="flex items-center border-2 rounded-xl md:rounded-lg divide-x-2">
                 <span
                   className="px-[11px] py-1 md:py-2 md:px-4 xl:py-[10px] xl:px-5 text-2xl xl:text-4xl cursor-pointer"
-                  onClick={() => setCounter((prev) => prev - 1)}
+                  onClick={() =>
+                    setCounter((prev) => (prev - 1 == 0 ? prev : prev - 1))
+                  }
                 >
                   –
                 </span>

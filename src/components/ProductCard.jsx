@@ -1,13 +1,13 @@
 import React from "react";
-import basket from "../assets/card/basket.svg";
-import like from "../assets/card/like.svg";
 import saleImg from "../assets/card/sale.svg";
 import { Link } from "react-router-dom";
+import CardButton from "../ui/CardButton";
 const ProductCard = ({ product, sale }) => {
   const discount = Math.floor(
     product.price * (product.discountPercentage / 100) * 1000
   );
   const price = product.price * 1000;
+
   return (
     <div className="productCard">
       {sale && (
@@ -38,15 +38,7 @@ const ProductCard = ({ product, sale }) => {
         </p>
       </div>
 
-      <div className="flex justify-between mt-[18px]">
-        <button className="btn flex items-center gap-3 xl:gap-[18px] py-2 px-3 lg:px-4 xl:px-7">
-          <img src={basket} />
-          <span>В корзину</span>
-        </button>
-        <button className="btn p-2">
-          <img src={like} />
-        </button>
-      </div>
+      <CardButton product={product} />
     </div>
   );
 };

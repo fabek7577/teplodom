@@ -11,7 +11,7 @@ const Categories = () => {
     dispatch(getCategories());
   }, []);
   return (
-    <div className="mt-[76px]">
+    <div className="mt-[76px] xl:mt-[176px]">
       <SectionTitle to={"categories"}>
         Категории <span>Все категории →</span>
       </SectionTitle>

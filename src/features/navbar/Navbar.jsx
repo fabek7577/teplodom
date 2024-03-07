@@ -1,12 +1,12 @@
 import React from "react";
-import logo from "../assets/navbar/logo.svg";
-import search from "../assets/navbar/search.svg";
-import person from "../assets/navbar/person.svg";
-import basket from "../assets/navbar/basket.svg";
-import like from "../assets/navbar/like.svg";
-import filters from "../assets/navbar/filters.svg";
-import sidebar from "../assets/navbar/sidebar.svg";
+import logo from "../../assets/navbar/logo.svg";
+import search from "../../assets/navbar/search.svg";
+import person from "../../assets/navbar/person.svg";
+import filters from "../../assets/navbar/filters.svg";
+import sidebar from "../../assets/navbar/sidebar.svg";
 import { Link, NavLink } from "react-router-dom";
+import BasketIcon from "./basket/BasketIcon";
+import FavouritesIcon from "./favourites/FavouritesIcon";
 const Navbar = () => {
   return (
     <nav className="container py-5 flex flex-col gap-10">
@@ -24,16 +24,12 @@ const Navbar = () => {
         </Link>
 
         <div className="flex gap-5 md:gap-3 lg:gap-5 items-center justify-center md:order-3">
-          <div className="nav-icon">
-            <img src={like} alt="navbar likes" className="w-6 sm:w-7" />
-          </div>
-          <div className="nav-icon">
-            <img src={basket} alt="navbar basket" className="w-6 sm:w-7" />
-          </div>
-          <div className="nav-icon flex gap-4 lg:rounded-lg">
+          <FavouritesIcon/>
+          <BasketIcon/>
+          <Link className="nav-icon flex gap-4 lg:rounded-lg">
             <img src={person} alt="navbar person" className="w-6 sm:w-7" />
             <span className="text-lg hidden lg:inline">Профиль</span>
-          </div>
+          </Link>
         </div>
 
         <div className="flex flex-1 items-center justify-evenly gap-1 sm:gap-3 md:order-2 md:flex-none">

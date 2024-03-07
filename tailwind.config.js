@@ -32,6 +32,10 @@ module.exports = withMT({
           "linear-gradient(180deg, rgb(255, 243, 1), rgb(255, 179, 3));",
         linarBrown:
           "linear-gradient(180deg, rgb(183, 152, 145), rgb(148, 113, 107));",
+        sliderBg1: "url('/src/assets/slider/sliderBg1.png')",
+        sliderBg2: "url('/src/assets/slider/sliderBg2.png')",
+        sliderBg3: "url('/src/assets/slider/sliderBg3.png')",
+        sliderBg4: "url('/src/assets/slider/sliderBg4.png')",
       },
     },
   },

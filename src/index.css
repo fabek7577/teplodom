@@ -25,7 +25,7 @@ a.nav-sidebar.active {
   @apply bg-linarOrange text-white border border-white shadow-[0px_4px_4px_0px_rgba(0,0,0,.25)];
 }
 .btn {
-  @apply text-white bg-[#FFB12A] rounded-lg cursor-pointer;
+  @apply text-white bg-[#FFB12A] active:ring-2 outline-none ring-yellow ring-offset-2 rounded-lg cursor-pointer;
 }
 .ourAdvantages-icon {
   @apply w-[72px] h-[72px] mx-auto rounded-full flex items-center justify-center;
@@ -35,4 +35,7 @@ a.nav-sidebar.active {
 }
 .productDetail-icon {
   @apply flex items-center justify-center border-2 border-black rounded-lg p-2 hover:bg-yellow hover:border-yellow active:ring-2 outline-none ring-yellow ring-offset-2 cursor-pointer md:w-[50px] md:h-[50px] xl:w-[64px] xl:h-[64px];
+}
+.carousel {
+  @apply w-full h-full p-2 flex text-white items-center gap-5 justify-between px-10;
 }
