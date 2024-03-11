@@ -3,6 +3,7 @@ import { updateFavourites } from "./services/apiProducts";
 
 const initialState = {
   products: [],
+  brands: [],
 };
 
 const productsSlice = createSlice({
@@ -11,6 +12,9 @@ const productsSlice = createSlice({
   reducers: {
     getProducts: (state, { payload }) => {
       state.products = payload;
+    },
+    getBrands: (state, { payload }) => {
+      state.brands = payload;
     },
     addFavourite: (state, { payload }) => {
       state.products.map((product, i) => {

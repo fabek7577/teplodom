@@ -16,6 +16,13 @@ export function getProducts() {
     dispatch({ type: "products/getProducts", payload: data });
   };
 }
+export function getBrands() {
+  return async function (dispatch) {
+    const res = await fetch(`${API_URL}/brands`);
+    const data = await res.json();
+    dispatch({ type: "products/getBrands", payload: data });
+  };
+}
 export function updateFavourites(product) {
   fetch(`${API_URL}/products/${product.id}`, {
     method: "PUT",

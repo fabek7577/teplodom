@@ -10,15 +10,26 @@ import clockWHITE from "../../assets/productDetail/clockWHITE.svg";
 import basketWHITE from "../../assets/productDetail/basketWHITE.svg";
 import likeWHITE from "../../assets/productDetail/likeWHITE.svg";
 import SimilarProducts from "./SimilarProducts";
+import { useDispatch } from "react-redux";
+import { addToBasket } from "../navbar/basket/basketSlice";
+import { addFavourite } from "../../productsSlice";
 const ProductDetail = () => {
+  const dispatch = useDispatch();
   const product = useLoaderData();
   const isOnSale = product.discountPercentage >= 15;
   const discount = Math.floor(
-    product.price * (product.discountPercentage / 100) * 1000
+    product.price * (product.discountPercentage / 100)
   );
-  const price = product.price * 1000;
+  const price = product.price ;
 
   const [counter, setCounter] = useState(1);
+
+  const handleBasket = () => {
+    dispatch(addToBasket(product));
+  };
+  const handleFavourite = () => {
+    dispatch(addFavourite(product));
+  };
 
   return (
     <div className="container my-14">
@@ -33,11 +44,11 @@ const ProductDetail = () => {
               className="w-full md:max-w-[500px] max-h-full object-contain"
             />
           </div>
-          <div className="flex flex-col justify-center mt-14 lg:mt-0 w-2/3">
+          <div className="flex flex-col justify-center mt-14 lg:mt-0 lg:w-2/3">
             <h1 className="hidden lg:inline-block font-bold text-3xl xl:text-5xl mb-14">
               {product.title}
             </h1>
-            <p className="text-xl xl:text-2xl">{product.description}</p>
+            <p className="text-xl xl:text-2xl line-clamp-6 w-full">{product.description}</p>
             <div className="flex items-center gap-4 mt-6">
               <p
                 className={`text-3xl xl:text-[40px] ${
@@ -70,12 +81,14 @@ const ProductDetail = () => {
               />
               <img
                 src={basket}
+                onClick={handleBasket}
                 onMouseEnter={(e) => (e.target.src = basketWHITE)}
                 onMouseLeave={(e) => (e.target.src = basket)}
                 className="productDetail-icon"
               />
               <img
                 src={like}
+                onClick={handleFavourite}
                 onMouseEnter={(e) => (e.target.src = likeWHITE)}
                 onMouseLeave={(e) => (e.target.src = like)}
                 className="productDetail-icon"

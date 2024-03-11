@@ -6,7 +6,10 @@ import like from "../assets/card/like.svg";
 import likeActive from "../assets/card/likeActive.svg";
 import { useLocation, useNavigate } from "react-router-dom";
 import { addFavourite, delFavourite } from "../productsSlice";
-import { addToBasket, delFromBasket } from "../features/navbar/basket/basketSlice";
+import {
+  addToBasket,
+  delFromBasket,
+} from "../features/navbar/basket/basketSlice";
 import Button from "./Button";
 
 const CardButton = ({ product }) => {
@@ -21,14 +24,12 @@ const CardButton = ({ product }) => {
   };
 
   const handleFavourite = () => {
-    if (product.favourite) {
-      dispatch(delFavourite(product));
-    } else dispatch(addFavourite(product));
+    dispatch(addFavourite(product));
   };
 
   const handleClick = () => {
     if (pathname == "/favourites") {
-      handleFavourite();
+      dispatch(delFavourite(product));
     }
     if (pathname == "/basket") {
       dispatch(delFromBasket(product.id));

@@ -12,7 +12,7 @@ const NewProducts = () => {
       <SectionTitle to={"new"}>
         Новинки на сайте <span>Смотреть все →</span>
       </SectionTitle>
-      <div className="flex overflow-x-scroll lg:grid grid-cols-4 xl:overflow-x-auto gap-4 py-5">
+      <div className="flex overflow-x-auto lg:grid grid-cols-4 gap-4 py-5">
         {products?.map((product, i) => {
           if (i >= 4 || dateNow - Date.parse(product.addedTime) > tenDays) {
             return null;
@@ -21,7 +21,7 @@ const NewProducts = () => {
           }
         })}
       </div>
-      <div className="flex overflow-x-scroll lg:grid grid-cols-4 xl:overflow-x-auto gap-4 py-5">
+      <div className="flex overflow-x-auto lg:grid grid-cols-4 gap-4 py-5">
         {products?.map((product, i) => {
           if (
             i <= 4 ||

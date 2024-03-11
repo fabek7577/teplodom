@@ -15,6 +15,8 @@ import ProductDetail, {
 } from "./features/productItem/ProductDetail";
 import BasketProductsList from "./features/navbar/basket/BasketProductsList";
 import FavouritesProductsList from "./features/navbar/favourites/FavouritesProductsList";
+import ReturnProduct from "./components/ReturnProduct";
+import Search from "./features/search/Search";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -29,6 +31,14 @@ const App = () => {
         {
           index: true,
           element: <Home />,
+        },
+        {
+          path: "search/:searchedItem",
+          element: <Search />,
+        },
+        {
+          path: "search",
+          element: <Search />,
         },
         {
           path: "new",
@@ -57,6 +67,10 @@ const App = () => {
         {
           path: "toProviders",
           element: <ToProviders />,
+        },
+        {
+          path: "returnProduct",
+          element: <ReturnProduct />,
         },
         {
           path: "sale",

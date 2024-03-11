@@ -13,7 +13,7 @@ const AllCategories = () => {
   return (
     <div className="container my-[76px]">
       <SectionTitle>Все категории</SectionTitle>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8">
         {categories?.map((category) => {
           return (
             <CategoryCard key={category.id} category={category} type={"big"} />
