@@ -1,4 +1,22 @@
-const API_URL = "https://teplodomdata.onrender.com";
+const API_URL = "http://localhost:3333";
+
+export function getAccount(user) {
+  return async function (dispatch) {
+    const res = await fetch(
+      `http://localhost:3333/accounts?contact=${user.contact}&password=${user.password}`
+    );
+    const data = await res.json();
+    dispatch({ type: "user/loginUser", payload: data[0] });
+  };
+}
+
+export function registerAccount(product) {
+  fetch(`${API_URL}/accounts`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(product),
+  });
+}
 
 export async function getProduct(productId) {
   const res = await fetch(`${API_URL}/products/${productId}`);

@@ -17,6 +17,7 @@ import BasketProductsList from "./features/navbar/basket/BasketProductsList";
 import FavouritesProductsList from "./features/navbar/favourites/FavouritesProductsList";
 import ReturnProduct from "./components/ReturnProduct";
 import Search from "./features/search/Search";
+import Contacts from "./components/Contacts";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -43,6 +44,10 @@ const App = () => {
         {
           path: "new",
           element: <AllNewProducts />,
+        },
+        {
+          path: "contacts",
+          element: <Contacts />,
         },
         {
           path: "categories",

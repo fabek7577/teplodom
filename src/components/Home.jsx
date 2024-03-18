@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { CarouselCustomNavigation } from "./Carousel";
 import Categories from "../features/categories/Categories";
 import NewProducts from "../features/new/NewProducts";

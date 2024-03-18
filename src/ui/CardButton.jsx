@@ -1,26 +1,31 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import basket from "../assets/card/basket.svg";
 import order from "../assets/card/order.svg";
 import like from "../assets/card/like.svg";
 import likeActive from "../assets/card/likeActive.svg";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { addFavourite, delFavourite } from "../productsSlice";
 import {
   addToBasket,
   delFromBasket,
 } from "../features/navbar/basket/basketSlice";
 import Button from "./Button";
+import Authentication from "../features/account/Authentication";
 
 const CardButton = ({ product }) => {
+  const { user } = useSelector((state) => state.account);
   const dispatch = useDispatch();
+  const [auth, setAuth] = useState(false);
   const { pathname } = useLocation();
-  const navigate = useNavigate();
+
   const handleBasket = () => {
-    dispatch(addToBasket(product));
     if (pathname == "/basket") {
-      navigate(`/products/${product.id}`);
-    }
+      if (user) {
+        alert("Покупка совершена");
+        dispatch(delFromBasket(product.id));
+      } else setAuth(true);
+    } else dispatch(addToBasket(product));
   };
 
   const handleFavourite = () => {
@@ -36,22 +41,26 @@ const CardButton = ({ product }) => {
     }
   };
   return (
-    <div className="flex justify-between mt-[18px]">
-      <button
-        onClick={handleBasket}
-        className="btn flex items-center gap-3 xl:gap-[18px] py-2 px-3 lg:px-4 xl:px-7"
-      >
-        <img src={pathname == "/basket" ? order : basket} />
-        <span>{pathname == "/basket" ? "Оформить" : "В корзину"}</span>
-      </button>
-      {pathname == "/favourites" || pathname == "/basket" ? (
-        <Button onClick={handleClick} type={"urn"} />
-      ) : (
-        <button onClick={handleFavourite} className="btn p-2">
-          <img src={product.favourite ? likeActive : like} />
+    <>
+      {auth && <Authentication closer={setAuth} />}
+      <div className="flex justify-between mt-[18px]">
+        <button
+          onClick={handleBasket}
+          className="btn flex items-center gap-3 xl:gap-[18px] py-2 px-3 sm:px-[14px] lg:px-4 xl:px-7"
+        >
+          <img src={pathname == "/basket" ? order : basket} />
+          <span>{pathname == "/basket" ? "Оформить" : "В корзину"}</span>
         </button>
-      )}
-    </div>
+
+        {pathname == "/favourites" || pathname == "/basket" ? (
+          <Button onClick={handleClick} type={"urn"} />
+        ) : (
+          <button onClick={handleFavourite} className="btn p-2">
+            <img src={product.favourite ? likeActive : like} />
+          </button>
+        )}
+      </div>
+    </>
   );
 };
 

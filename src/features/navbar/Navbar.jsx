@@ -1,12 +1,12 @@
 import React from "react";
 import logo from "../../assets/navbar/logo.svg";
-import person from "../../assets/navbar/person.svg";
 import filters from "../../assets/navbar/filters.svg";
 import sidebar from "../../assets/navbar/sidebar.svg";
 import { Link, NavLink } from "react-router-dom";
 import BasketIcon from "./basket/BasketIcon";
 import FavouritesIcon from "./favourites/FavouritesIcon";
 import Form from "./Form";
+import Profile from "./Profile";
 const Navbar = () => {
   return (
     <nav className="py-5 flex flex-col gap-10">
@@ -29,10 +29,7 @@ const Navbar = () => {
         <div className="flex gap-5 md:gap-3 lg:gap-5 items-center justify-center md:order-3">
           <FavouritesIcon />
           <BasketIcon />
-          <Link className="nav-icon flex gap-4 lg:rounded-lg">
-            <img src={person} alt="navbar person" className="w-6 sm:w-7" />
-            <span className="text-lg hidden lg:inline">Профиль</span>
-          </Link>
+          <Profile />
         </div>
 
         <div className="flex flex-1 items-center justify-evenly gap-1 sm:gap-3 md:order-2 md:flex-none">

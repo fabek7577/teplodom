@@ -1,21 +1,17 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 import ProductCard from "../../components/ProductCard";
-import { Link } from "react-router-dom";
-import { getPopularProducts } from "./popularProductsSlice";
 import SectionTitle from "../../ui/SectionTitle";
 
 const PopularProducts = () => {
-  const { popularProducts } = useSelector((state) => state.popularProducts);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getPopularProducts());
-  }, []);
+  const { products } = useSelector((state) => state.products);
+  const popularProducts = products?.filter((item) => item.rating >= 4.5);
   return (
     <div className="mt-[76px]">
       <SectionTitle to={"popular"}>
         Популярные товары <span>Все →</span>
       </SectionTitle>
+      
       <div className="flex overflow-x-scroll lg:grid grid-cols-4 xl:overflow-x-auto gap-4 py-5">
         {popularProducts?.map((product, i) => {
           if (i >= 4) {
@@ -25,6 +21,7 @@ const PopularProducts = () => {
           }
         })}
       </div>
+
       <div className="flex overflow-x-scroll lg:grid grid-cols-4 xl:overflow-x-auto gap-4 py-5">
         {popularProducts?.map((product, i) => {
           if (i <= 4 || i > 8) {

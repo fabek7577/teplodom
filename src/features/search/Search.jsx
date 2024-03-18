@@ -39,33 +39,8 @@ const Search = () => {
     setFilteredItems(products);
   };
   const handleSearch = () => {
-    // category || color || brand
-    //   ? setFilteredItems(
-    //       products?.filter(
-    //         (product) =>
-    //           product.category === category ||
-    //           product.brand === brand ||
-    //           product.color === color
-    //       )
-    //     )
-    //   : "";
-    // category && brand
-    //   ? setFilteredItems(
-    //       products?.filter((product) => product.category == category && product.brand == brand)
-    //     )
-    //   : "";
-    // category && brand && color
-    //   ? setFilteredItems(
-    //       products?.filter(
-    //         (product) =>
-    //           product.category == category &&
-    //           product.brand == brand &&
-    //           product.color == color
-    //       )
-    //     )
-    //   : "";
-    setFilteredItems((prev) =>
-      prev?.filter(
+    setFilteredItems(
+      products?.filter(
         ({ category, color, brand, price }) =>
           (category == categoryFil || categoryFil == "") &&
           (color == colorFil || colorFil == "") &&
@@ -79,6 +54,7 @@ const Search = () => {
     <div className="container my-[76px] flex items-start justify-between gap-5">
       <Filter
         filters={{ setCategory, setPrice, setBrand }}
+        priceFil={priceFil}
         colors={{ colorFil, setColor }}
         handleSearch={handleSearch}
         handleClear={handleClear}
@@ -86,7 +62,7 @@ const Search = () => {
       <div className="grow">
         <SectionTitle>Товары по поиску ({filteredItems.length})</SectionTitle>
         <div className="flex flex-col gap-8">
-          {filteredItems?.slice(0, 10).map((product) => {
+          {filteredItems?.map((product) => {
             return <SearchedCard key={product.id} product={product} />;
           })}
         </div>

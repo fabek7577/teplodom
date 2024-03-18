@@ -2,13 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-
 a {
   width: fit-content;
   cursor: pointer;
 }
 .productCard {
-  @apply relative min-w-[210px] h-[330px] xl:w-[255px] xl:h-[400px] flex flex-col bg-white rounded-xl p-3 xl:px-[15px] lg:px-5 xl:pb-[28px] mx-auto;
+  @apply relative min-w-[210px] max-w-[250px] h-[330px]  xl:max-w-[255px] xl:h-[400px] flex flex-col bg-white rounded-xl p-3 xl:px-[15px] lg:px-5 xl:pb-[28px] mx-auto;
 }
 .sections-title {
   @apply text-xl lg:text-3xl font-semibold;
@@ -50,4 +49,10 @@ input::-webkit-inner-spin-button {
 }
 .color-choose {
   @apply relative w-[30px] h-[30px] rounded-full cursor-pointer flex items-center justify-center ring-offset-2;
+}
+.modal-formInp {
+  @apply py-[14px] px-[15px] rounded-xl text-lg mt-[14px];
+}
+.modal-checkbox {
+  @apply w-[18px] h-[18px] p-[3px] border border-black accent-[#90C049];
 }

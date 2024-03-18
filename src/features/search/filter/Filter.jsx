@@ -7,7 +7,7 @@ import Cost from "./Cost";
 import Color from "./Color";
 import FilterButtons from "./FilterButtons";
 
-const Filter = ({ filters, colors, handleSearch, handleClear }) => {
+const Filter = ({ filters, colors, handleSearch, handleClear,priceFil }) => {
   const { categories } = useSelector((state) => state.categories);
   const { brands } = useSelector((state) => state.products);
   const dispatch = useDispatch();
@@ -30,7 +30,7 @@ const Filter = ({ filters, colors, handleSearch, handleClear }) => {
         select="title"
         setSelect={filters.setCategory}
       />
-      <Cost setPrice={filters.setPrice} />
+      <Cost setPrice={filters.setPrice} priceFil={priceFil} />
       <Color colors={colors} />
       <div className="mt-10">
         <FormSelect

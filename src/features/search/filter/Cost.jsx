@@ -1,6 +1,6 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
-const Cost = ({ setPrice }) => {
+const Cost = ({ setPrice, priceFil }) => {
   const min = useRef();
   const max = useRef();
   const handleChange = () => {
@@ -9,6 +9,12 @@ const Cost = ({ setPrice }) => {
         (prev = { ...prev, min: min.current.value, max: max.current.value })
     );
   };
+  useEffect(()=>{
+    if (priceFil.min == 0 && priceFil.max == 0) {
+      min.current.value = ""
+      max.current.value = ""
+    }
+  },[priceFil])
   return (
     <div className="mt-7">
       <span className="text-xs">Цена</span>

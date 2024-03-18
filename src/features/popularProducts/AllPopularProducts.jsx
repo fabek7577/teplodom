@@ -1,15 +1,11 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 import ProductCard from "../../components/ProductCard";
-import { getPopularProducts } from "./popularProductsSlice";
 import SectionTitle from "../../ui/SectionTitle";
 
 const AllPopularProducts = () => {
-  const { popularProducts } = useSelector((state) => state.popularProducts);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getPopularProducts());
-  }, []);
+  const { products } = useSelector((state) => state.products);
+  const popularProducts = products?.filter((item) => item.rating >= 4.5);
   return (
     <div className="container my-[76px]">
       <SectionTitle>Все популярные товары</SectionTitle>
