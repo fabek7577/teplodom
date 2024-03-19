@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 a {
   width: fit-content;
   cursor: pointer;
@@ -53,6 +59,10 @@ input::-webkit-inner-spin-button {
 .modal-formInp {
   @apply py-[14px] px-[15px] rounded-xl text-lg mt-[14px];
 }
+.order-inp {
+  @apply py-[9px] px-3 lg:px-5 rounded-md lg:rounded-[10px] mt-3 lg:mt-[10px] border border-black/20;
+}
+
 .modal-checkbox {
   @apply w-[18px] h-[18px] p-[3px] border border-black accent-[#90C049];
 }

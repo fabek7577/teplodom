@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import basket from "../assets/card/basket.svg";
-import order from "../assets/card/order.svg";
+import orderIcon from "../assets/card/order.svg";
 import like from "../assets/card/like.svg";
 import likeActive from "../assets/card/likeActive.svg";
 import { useLocation } from "react-router-dom";
@@ -12,18 +12,19 @@ import {
 } from "../features/navbar/basket/basketSlice";
 import Button from "./Button";
 import Authentication from "../features/account/Authentication";
+import Order from "../features/order/Order";
 
 const CardButton = ({ product }) => {
   const { user } = useSelector((state) => state.account);
   const dispatch = useDispatch();
   const [auth, setAuth] = useState(false);
+  const [order, setOrder] = useState(false);
   const { pathname } = useLocation();
 
   const handleBasket = () => {
     if (pathname == "/basket") {
       if (user) {
-        alert("Покупка совершена");
-        dispatch(delFromBasket(product.id));
+        setOrder(true);
       } else setAuth(true);
     } else dispatch(addToBasket(product));
   };
@@ -42,13 +43,14 @@ const CardButton = ({ product }) => {
   };
   return (
     <>
+      {order && <Order closer={setOrder} title={product.title} />}
       {auth && <Authentication closer={setAuth} />}
       <div className="flex justify-between mt-[18px]">
         <button
           onClick={handleBasket}
           className="btn flex items-center gap-3 xl:gap-[18px] py-2 px-3 sm:px-[14px] lg:px-4 xl:px-7"
         >
-          <img src={pathname == "/basket" ? order : basket} />
+          <img src={pathname == "/basket" ? orderIcon : basket} />
           <span>{pathname == "/basket" ? "Оформить" : "В корзину"}</span>
         </button>
 

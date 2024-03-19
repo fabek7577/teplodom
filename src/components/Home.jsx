@@ -6,6 +6,7 @@ import PopularProducts from "../features/popularProducts/PopularProducts";
 import OurAdvantages from "./OurAdvantages";
 import OurTeam from "./OurTeam";
 import AboutUs from "./AboutUs";
+import Order from "../features/order/Order";
 const Home = () => {
   return (
     <div className="container mb-10">

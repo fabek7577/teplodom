@@ -3,7 +3,7 @@ const API_URL = "http://localhost:3333";
 export function getAccount(user) {
   return async function (dispatch) {
     const res = await fetch(
-      `http://localhost:3333/accounts?contact=${user.contact}&password=${user.password}`
+      `${API_URL}/accounts?contact=${user.contact}&password=${user.password}`
     );
     const data = await res.json();
     dispatch({ type: "user/loginUser", payload: data[0] });
