@@ -1,20 +1,21 @@
 import React, { useEffect, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setPrice } from "./filterSlice";
 
-const Cost = ({ setPrice, priceFil }) => {
+const Cost = () => {
+  const { price } = useSelector((state) => state.filter);
+  const dispatch = useDispatch();
   const min = useRef();
   const max = useRef();
   const handleChange = () => {
-    setPrice(
-      (prev) =>
-        (prev = { ...prev, min: min.current.value, max: max.current.value })
-    );
+    dispatch(setPrice({ min: +min.current.value, max: +max.current.value }));
   };
-  useEffect(()=>{
-    if (priceFil.min == 0 && priceFil.max == 0) {
-      min.current.value = ""
-      max.current.value = ""
+  useEffect(() => {
+    if (price.min == 0 && price.max == 0) {
+      min.current.value = "";
+      max.current.value = "";
     }
-  },[priceFil])
+  }, [price]);
   return (
     <div className="mt-7">
       <span className="text-xs">Цена</span>

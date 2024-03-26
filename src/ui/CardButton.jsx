@@ -14,7 +14,7 @@ import Button from "./Button";
 import Authentication from "../features/account/Authentication";
 import Order from "../features/order/Order";
 
-const CardButton = ({ product }) => {
+const CardButton = ({ product, type }) => {
   const { user } = useSelector((state) => state.account);
   const dispatch = useDispatch();
   const [auth, setAuth] = useState(false);
@@ -41,6 +41,33 @@ const CardButton = ({ product }) => {
       dispatch(delFromBasket(product.id));
     }
   };
+
+  if (type == "all") {
+    return (
+      <>
+        {order && <Order closer={setOrder} title={product.title} />}
+        {auth && <Authentication closer={setAuth} />}
+        <div className="flex justify-between mt-[18px]">
+          <button
+            onClick={handleBasket}
+            className="btn flex items-center gap-[7px] xl:gap-[18px] py-2 px-[10px] xs:px-[13px] sm:!px-5 xl:!px-7"
+          >
+            <img src={pathname == "/basket" ? orderIcon : basket} className="w-[21px] xs:w-fit" />
+            <span>{pathname == "/basket" ? "Оформить" : "В корзину"}</span>
+          </button>
+
+          {pathname == "/favourites" || pathname == "/basket" ? (
+            <Button onClick={handleClick} type={"urn"} />
+          ) : (
+            <button onClick={handleFavourite} className="btn p-2">
+              <img src={product.favourite ? likeActive : like} className="w-5 xs:w-fit" />
+            </button>
+          )}
+        </div>
+      </>
+    );
+  }
+
   return (
     <>
       {order && <Order closer={setOrder} title={product.title} />}
@@ -48,7 +75,7 @@ const CardButton = ({ product }) => {
       <div className="flex justify-between mt-[18px]">
         <button
           onClick={handleBasket}
-          className="btn flex items-center gap-3 xl:gap-[18px] py-2 px-3 sm:px-[14px] lg:px-4 xl:px-7"
+          className="btn flex items-center gap-3 xl:gap-[18px] py-2 px-3 xs:px-[13px] sm:!px-5 xl:!px-7"
         >
           <img src={pathname == "/basket" ? orderIcon : basket} />
           <span>{pathname == "/basket" ? "Оформить" : "В корзину"}</span>

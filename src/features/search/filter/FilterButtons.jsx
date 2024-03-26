@@ -1,7 +1,23 @@
 import React from "react";
 import clearIcon from "../../../assets/filter/clear.svg";
 import searchIcon from "../../../assets/filter/search.svg";
-const FilterButtons = ({ handleSearch, handleClear }) => {
+import { useLocation, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { clearFilters, setFilteredItems } from "./filterSlice";
+const FilterButtons = () => {
+  const dispatch = useDispatch();
+  const { products } = useSelector((state) => state.products);
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+  // filter and clear functions
+  const handleClear = () => {
+    dispatch(clearFilters(products));
+    console.log("uu");
+  };
+  const handleSearch = () => {
+    pathname !== "search/" && navigate("/search/");
+    dispatch(setFilteredItems(products));
+  };
   return (
     <div className="flex items-center justify-between mt-10 text-lg gap-5">
       <button

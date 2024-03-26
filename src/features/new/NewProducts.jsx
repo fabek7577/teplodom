@@ -6,7 +6,7 @@ import SectionTitle from "../../ui/SectionTitle";
 const NewProducts = () => {
   const { products } = useSelector((state) => state.products);
   const dateNow = Date.now();
-  const tenDays = 86400000 * 10;
+  const tenDays = 86400000 * 30;
   return (
     <div className="mt-[76px]">
       <SectionTitle to={"new"}>

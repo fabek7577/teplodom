@@ -1,8 +1,16 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setBrand, setCategory } from "./filterSlice";
 
-const FormSelect = ({ selectors, title, select, setSelect }) => {
+const FormSelect = ({ selectors, title, select, type }) => {
+  const { category, brand } = useSelector((state) => state.filter);
+  const dispatch = useDispatch();
   const handleChange = (e) => {
-    setSelect(e.target.selectedOptions[0].value);
+    type === "category"
+      ? dispatch(setCategory(e.target.selectedOptions[0].value))
+      : type === "brand"
+      ? dispatch(setBrand(e.target.selectedOptions[0].value))
+      : "";
   };
   return (
     <form className="max-w-sm mx-auto">
@@ -11,6 +19,7 @@ const FormSelect = ({ selectors, title, select, setSelect }) => {
       </label>
       <select
         onChange={handleChange}
+        value={type == "category" ? category : brand}
         className="bg-[#FAFAFA] text-gray-900/60 text-sm rounded-lg focus:ring-blue-500 block w-full p-2.5"
       >
         <option value="">Выбрать</option>

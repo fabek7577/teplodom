@@ -5,6 +5,8 @@ import store from "../assets/ourAdvantages/store.svg";
 import deliver from "../assets/ourAdvantages/deliver.svg";
 import box from "../assets/ourAdvantages/box.svg";
 import SectionTitle from "../ui/SectionTitle";
+
+
 const OurAdvantages = () => {
   return (
     <section className="mt-[50px]">

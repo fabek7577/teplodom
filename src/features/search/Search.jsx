@@ -1,64 +1,33 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import SearchedCard from "./SearchedCard";
 import SectionTitle from "../../ui/SectionTitle";
 import Filter from "./filter/Filter";
 import { useParams } from "react-router-dom";
+import { setFilteredItems } from "./filter/filterSlice";
 const Search = () => {
+  const dispatch = useDispatch();
   const { searchedItem } = useParams();
   const { products } = useSelector((state) => state.products);
-  let [filteredItems, setFilteredItems] = useState(
-    searchedItem
-      ? products?.filter(
-          ({ title }) =>
-            title
-              .toLocaleLowerCase()
-              .indexOf(searchedItem.toLocaleLowerCase()) !== -1
-        )
-      : products
-  );
 
-  // filters
-  const [categoryFil, setCategory] = useState("");
-  const [priceFil, setPrice] = useState({
-    min: 0,
-    max: 0,
-  });
-  const [colorFil, setColor] = useState("");
-  const [brandFil, setBrand] = useState("");
-
-  // filter and clear functions
-  const handleClear = () => {
-    setCategory("");
-    setPrice({
-      max: 0,
-      min: 0,
-    });
-    setColor("");
-    setBrand("");
-    setFilteredItems(products);
-  };
-  const handleSearch = () => {
-    setFilteredItems(
-      products?.filter(
-        ({ category, color, brand, price }) =>
-          (category == categoryFil || categoryFil == "") &&
-          (color == colorFil || colorFil == "") &&
-          (brand == brandFil || brandFil == "") &&
-          price >= priceFil.min &&
-          (price <= priceFil.max || priceFil.max == 0)
+  useEffect(() => {
+    dispatch(
+      setFilteredItems(
+        searchedItem
+          ? products?.filter(
+              ({ title }) =>
+                title
+                  .toLocaleLowerCase()
+                  .indexOf(searchedItem.toLocaleLowerCase()) !== -1
+            )
+          : products
       )
     );
-  };
+  }, []);
+  const { filteredItems } = useSelector((state) => state.filter);
   return (
-    <div className="container my-[76px] flex items-start justify-between gap-5">
-      <Filter
-        filters={{ setCategory, setPrice, setBrand }}
-        priceFil={priceFil}
-        colors={{ colorFil, setColor }}
-        handleSearch={handleSearch}
-        handleClear={handleClear}
-      />
+    <div className="container my-8 lg:my-[76px] flex items-start justify-between gap-5">
+      <Filter />
       <div className="grow">
         <SectionTitle>Товары по поиску ({filteredItems.length})</SectionTitle>
         <div className="flex flex-col gap-8">

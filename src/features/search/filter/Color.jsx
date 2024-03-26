@@ -1,12 +1,15 @@
 import React, { useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setColor } from "./filterSlice";
 
-const Color = ({ colors }) => {
-  const { colorFil, setColor } = colors;
+const Color = () => {
+  const dispatch = useDispatch();
+  const { color } = useSelector((state) => state.filter);
   const handleCheck = (e) => {
-    setColor(e.target.value);
-    if (colorFil == e.target.value) {
+    dispatch(setColor(e.target.value));
+    if (color == e.target.value) {
       e.target.checked = false;
-      setColor("");
+      dispatch(setColor(""));
     }
   };
   return (
@@ -15,7 +18,7 @@ const Color = ({ colors }) => {
       <div className="flex items-center gap-4">
         <label
           className={`color-choose bg-black border border-transparent ring-black ${
-            colorFil == "black" ? "ring-1" : ""
+            color == "black" ? "ring-1" : ""
           }`}
         >
           <input
@@ -29,7 +32,7 @@ const Color = ({ colors }) => {
 
         <label
           className={`color-choose bg-white border border-gray-200 ring-gray-200 ${
-            colorFil == "white" ? "ring-1" : ""
+            color == "white" ? "ring-1" : ""
           }`}
         >
           <input
@@ -43,7 +46,7 @@ const Color = ({ colors }) => {
 
         <label
           className={`color-choose bg-red-500 border border-transparent ring-red-500 ${
-            colorFil == "red" ? "ring-1" : ""
+            color == "red" ? "ring-1" : ""
           }`}
         >
           <input
@@ -57,7 +60,7 @@ const Color = ({ colors }) => {
 
         <label
           className={`color-choose bg-orange-500 border border-transparent ring-orange-500 ${
-            colorFil == "orange" ? "ring-1" : ""
+            color == "orange" ? "ring-1" : ""
           }`}
         >
           <input
@@ -71,7 +74,7 @@ const Color = ({ colors }) => {
 
         <label
           className={`color-choose bg-green-500 border border-transparent ring-green-500 ${
-            colorFil == "green" ? "ring-1" : ""
+            color == "green" ? "ring-1" : ""
           }`}
         >
           <input
@@ -85,7 +88,7 @@ const Color = ({ colors }) => {
 
         <label
           className={`color-choose bg-[#CF00F0] border border-transparent ring-[#CF00F0] ${
-            colorFil == "purple" ? "ring-1" : ""
+            color == "purple" ? "ring-1" : ""
           }`}
         >
           <input

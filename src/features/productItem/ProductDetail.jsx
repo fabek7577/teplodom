@@ -63,7 +63,7 @@ const ProductDetail = () => {
                 >
                   {isOnSale
                     ? (price - discount).toLocaleString()
-                    : price.toLocaleString()}{" "}
+                    : price.toLocaleString()}
                   сум
                 </p>
                 {isOnSale && (

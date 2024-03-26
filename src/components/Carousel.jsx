@@ -7,9 +7,9 @@ import slider3_2 from "../assets/slider/slider3_2.png";
 export function CarouselCustomNavigation() {
   return (
     <Carousel
-      className="rounded-xl xl:h-[420px]"
+      className="rounded-xl sm:min-h-[190px] xl:h-[420px]"
       navigation={({ setActiveIndex, activeIndex, length }) => (
-        <div className="absolute bottom-5 lg:bottom-10 left-2/4 lg:left-44 z-50 flex -translate-x-2/4 gap-2">
+        <div className="absolute bottom-5 lg:bottom-10 left-2/4 lg:left-44 z-30 flex -translate-x-2/4 gap-2">
           {new Array(length).fill("").map((_, i) => (
             <span
               key={i}
@@ -28,7 +28,7 @@ export function CarouselCustomNavigation() {
         <img
           src={slider1}
           alt="image 1"
-          className="w-[120px] md:w-[150px] lg:w-[240px] xl:w-fit h-fit object-cover lg:order-2"
+          className="w-[120px] md:w-[150px] lg:w-[240px] xl:w-fit h-fit object-cover lg:order-2 hidden xs:inline-block"
         />
         <div className="flex flex-col gap-3 lg:order-1 xl:h-full xl:py-14 xl:ps-14">
           <h1 className="text-xl font-bold md:text-2xl lg:text-4xl xl:text-5xl">
@@ -54,7 +54,7 @@ export function CarouselCustomNavigation() {
         <img
           src={slider2}
           alt="image 1"
-          className="w-[120px] md:w-[150px] lg:w-[240px] xl:w-fit h-fit object-cover lg:order-2"
+          className="w-[120px] md:w-[150px] lg:w-[240px] xl:w-fit h-fit object-cover lg:order-2 hidden xs:inline-block"
         />
         <div className="flex flex-col gap-3 lg:order-1 xl:h-full xl:py-14 xl:ps-14">
           <h1 className="text-xl font-bold lg:text-4xl xl:text-5xl">
@@ -77,7 +77,7 @@ export function CarouselCustomNavigation() {
       <div
         className={`bg-linarYellow carousel lg:bg-sliderBg3 bg-no-repeat bg-cover bg-center`}
       >
-        <div className="relative w-full h-full lg:order-2 flex lg:justify-center">
+        <div className="relative w-full sm:w-2/4 md:w-2/3 lg:w-full h-full lg:order-2 hidden xs:flex lg:justify-center">
           <img
             src={slider3}
             alt="image 1"
@@ -114,7 +114,7 @@ export function CarouselCustomNavigation() {
         <img
           src={slider4}
           alt="image 1"
-          className="w-[120px] md:w-[150px] lg:w-[240px] xl:w-fit h-fit object-cover lg:order-2"
+          className="w-[120px] md:w-[150px] lg:w-[240px] xl:w-fit h-fit object-cover lg:order-2 hidden xs:inline-block"
         />
         <div className="flex flex-col gap-3 lg:order-1 xl:h-full xl:py-14 xl:ps-14">
           <h1 className="text-xl font-bold lg:text-4xl xl:text-5xl">

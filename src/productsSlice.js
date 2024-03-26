@@ -22,7 +22,6 @@ const productsSlice = createSlice({
           const newObj = { ...payload, favourite: true };
           state.products[i] = newObj;
           updateFavourites(newObj);
-          console.log(state.products[i]);
         }
       });
     },

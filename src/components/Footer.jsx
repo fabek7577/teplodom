@@ -10,8 +10,8 @@ import loc from "../assets/footer/loc.svg";
 const Footer = () => {
   const date = new Date();
   return (
-    <footer className="relative lg:flex justify-between gap-32 p-4 pb-16 lg:p-8 text-white">
-      <div className="mb-9">
+    <footer className="relative lg:flex justify-between xl:gap-x-56 p-4 pb-16 lg:p-8 text-white">
+      <div className="mb-9 min-w-fit">
         <div className="flex items-center gap-2 cursor-pointer mb-3">
           <img src={logof} alt="Navbar logo" />
           <div className="text-center">
@@ -32,7 +32,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="flex flex-col sm:items-center sm:justify-between sm:flex-1 lg:flex-none xl:flex-1 flex-wrap sm:flex-row gap-5 lg:gap-10 text-lg mb-9">
+      <div className="flex flex-col sm:items-center md:justify-between sm:flex-1 lg:flex-none xl:flex-1 flex-wrap sm:flex-row gap-5 lg:gap-10 text-lg mb-9">
         <div className="flex flex-col gap-6 md:gap-1">
           <a className="font-bold md:mb-4">Быстрые ссылки</a>
           <a>Мастерам</a>

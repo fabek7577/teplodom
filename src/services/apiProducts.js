@@ -1,4 +1,4 @@
-const API_URL = "https://teplodomdata.onrender.com";
+const API_URL = "http://localhost:3333";
 
 export function getAccount(user) {
   return async function (dispatch) {

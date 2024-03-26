@@ -11,8 +11,7 @@
       "brand": "Apple",
       "color": "black",
       "category": "Сухие строительные смеси",
-      "image": "https://api.teplodomshop.com/api/v1/image/get-by-name/?image_name=@web/img/eleroon.png",
-      "favourite": true
+      "image": "https://api.teplodomshop.com/api/v1/image/get-by-name/?image_name=@web/img/eleroon.png"
     },
     {
       "id": "2",
@@ -90,7 +89,8 @@
       "brand": "Samsung",
       "color": "black",
       "category": "Товары для сауны",
-      "image": "https://api.teplodomshop.com/api/v1/image/get-by-name/?image_name=@web/img/megamixxx.png"
+      "image": "https://api.teplodomshop.com/api/v1/image/get-by-name/?image_name=@web/img/megamixxx.png",
+      "favourite": true
     },
     {
       "id": "8",
@@ -103,7 +103,8 @@
       "brand": "Microsoft Surface",
       "color": "black",
       "category": "Товары для сауны",
-      "image": "https://api.teplodomshop.com/api/v1/image/get-by-name/?image_name=@web/img/OLX POST-9,.png"
+      "image": "https://api.teplodomshop.com/api/v1/image/get-by-name/?image_name=@web/img/OLX POST-9,.png",
+      "favourite": true
     },
     {
       "id": "9",

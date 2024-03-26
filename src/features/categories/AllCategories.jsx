@@ -11,9 +11,9 @@ const AllCategories = () => {
     dispatch(getCategories());
   }, []);
   return (
-    <div className="container my-[76px]">
+    <div className="container my-10 sm:my-[76px]">
       <SectionTitle>Все категории</SectionTitle>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8">
+      <div className="flex flex-col flex-wrap xs:grid xs:grid-cols-2 sm:!grid-cols-3 md:!grid-cols-4 gap-y-4 xs:gap-8">
         {categories?.map((category) => {
           return (
             <CategoryCard key={category.id} category={category} type={"big"} />

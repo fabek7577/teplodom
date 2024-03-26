@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { CarouselCustomNavigation } from "./Carousel";
 import Categories from "../features/categories/Categories";
 import NewProducts from "../features/new/NewProducts";
@@ -6,7 +6,6 @@ import PopularProducts from "../features/popularProducts/PopularProducts";
 import OurAdvantages from "./OurAdvantages";
 import OurTeam from "./OurTeam";
 import AboutUs from "./AboutUs";
-import Order from "../features/order/Order";
 const Home = () => {
   return (
     <div className="container mb-10">

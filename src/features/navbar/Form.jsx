@@ -12,7 +12,7 @@ const Form = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="relative flex items-center h-full w-[350px] sm:w-[400px] md:w-[350px] lg:w-[445px]"
+      className="relative flex items-center h-full w-[300px] xs:w-[370px] sm:w-[400px] md:!w-[320px] lg:!w-[445px]"
     >
       <img
         src={search}
