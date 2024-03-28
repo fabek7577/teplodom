@@ -16,7 +16,7 @@ export function pushContact(obj) {
       reply_markup: {
         inline_keyboard: [
           [
-            { text: "Website", url: "google.com" }
+            { text: "Website", url: "https://teplodom-three.vercel.app" }
           ],
         ],
       },
