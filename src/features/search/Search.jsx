@@ -25,6 +25,10 @@ const Search = () => {
     );
   }, []);
   const { filteredItems } = useSelector((state) => state.filter);
+  useEffect(()=>{
+    setCardCounts(6)
+  },[filteredItems])
+  
   return (
     <div className="container my-8 lg:my-[76px]">
       <div className="flex items-start justify-between gap-5">

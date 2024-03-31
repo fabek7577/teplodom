@@ -20,7 +20,6 @@ const Filter = ({ type, closer }) => {
       dispatch(getBrands());
     }
   }, []);
-
   const baseClass =
     type == "modal"
       ? "relative max-w-[384px] lg:w-[360px] h-[670px] bg-white rounded-2xl p-5"

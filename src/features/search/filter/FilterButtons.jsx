@@ -12,7 +12,6 @@ const FilterButtons = () => {
   // filter and clear functions
   const handleClear = () => {
     dispatch(clearFilters(products));
-    console.log("uu");
   };
   const handleSearch = () => {
     pathname !== "search/" && navigate("/search/");
