@@ -23,6 +23,20 @@ module.exports = withMT({
       colors: {
         yellow: "#FFB12A",
       },
+      keyframes: {
+        sidebar: {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(-0%)" },
+        },
+        sidebarUnMount: {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+      },
+      animation: {
+        sidebar: "sidebar .2s linear",
+        sidebarUnMount: "sidebarUnMount .2s linear",
+      },
       backgroundImage: {
         linarOrange:
           "linear-gradient(180deg, rgb(255, 165, 9), rgb(246, 108, 79));",

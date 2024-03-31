@@ -18,6 +18,8 @@ import FavouritesProductsList from "./features/navbar/favourites/FavouritesProdu
 import ReturnProduct from "./components/ReturnProduct";
 import Search from "./features/search/Search";
 import Contacts from "./components/Contacts";
+import ForMasters from "./components/ForMasters";
+import UserAgreement from "./components/UserAgreement";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -80,6 +82,14 @@ const App = () => {
         {
           path: "sale",
           element: <OnSaleProducts />,
+        },
+        {
+          path: "ForMasters",
+          element: <ForMasters />,
+        },
+        {
+          path: "userAgreement",
+          element: <UserAgreement />,
         },
         {
           path: "products/:productId",

@@ -6,13 +6,14 @@ import telega from "../assets/footer/telega.svg";
 import facebook from "../assets/footer/facebook.svg";
 import enth from "../assets/footer/enth.svg";
 import loc from "../assets/footer/loc.svg";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const date = new Date();
   return (
     <footer className="relative lg:flex justify-between xl:gap-x-56 p-4 pb-16 lg:p-8 text-white">
       <div className="mb-9 min-w-fit">
-        <div className="flex items-center gap-2 cursor-pointer mb-3">
+        <Link to={"/"} className="flex items-center gap-2 cursor-pointer mb-3">
           <img src={logof} alt="Navbar logo" />
           <div className="text-center">
             <h1 className="text-lg lg:text-2xl font-semibold tracking-wider">
@@ -22,7 +23,7 @@ const Footer = () => {
               Интернет магазин <br /> строй материалов
             </p>
           </div>
-        </div>
+        </Link>
 
         <div className="hidden md:flex items-start gap-1">
           <img src={loc} alt="" />
@@ -34,19 +35,21 @@ const Footer = () => {
 
       <div className="flex flex-col sm:items-center md:justify-between sm:flex-1 lg:flex-none xl:flex-1 flex-wrap sm:flex-row gap-5 lg:gap-10 text-lg mb-9">
         <div className="flex flex-col gap-6 md:gap-1">
-          <a className="font-bold md:mb-4">Быстрые ссылки</a>
-          <a>Мастерам</a>
-          <a>Оформление заказа</a>
-          <a>Пользовательское соглашение</a>
+          <p className="font-bold md:mb-4">Быстрые ссылки</p>
+          <Link to={"forMasters"}>Мастерам</Link>
+          <Link to={"fastPurchase"}>Оформление заказа</Link>
+          <Link to={"userAgreement"}>Пользовательское соглашение</Link>
         </div>
+
         <div className="flex flex-col gap-6 md:gap-1">
-          <a className="font-bold md:mb-4">Полезное</a>
-          <a>О нас</a>
-          <a>Поставщикам</a>
-          <a>Возврат товара</a>
+          <p className="font-bold md:mb-4">Полезное</p>
+          <Link to={"/"}>О нас</Link>
+          <Link to={"toProviders"}>Поставщикам</Link>
+          <Link to={"returnProduct"}>Возврат товара</Link>
         </div>
+
         <div className="flex flex-col gap-6 md:gap-1">
-          <a className="font-bold md:mb-4">Контакты</a>
+          <p className="font-bold md:mb-4">Контакты</p>
           <span className="flex items-center gap-2">
             <img src={call} /> +998 95 111 29 16
           </span>

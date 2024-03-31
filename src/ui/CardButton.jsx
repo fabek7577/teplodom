@@ -26,7 +26,9 @@ const CardButton = ({ product, type }) => {
       if (user) {
         setOrder(true);
       } else setAuth(true);
-    } else dispatch(addToBasket(product));
+    } else {
+      dispatch(addToBasket(product));
+    }
   };
 
   const handleFavourite = () => {
@@ -50,17 +52,23 @@ const CardButton = ({ product, type }) => {
         <div className="flex justify-between mt-[18px]">
           <button
             onClick={handleBasket}
-            className="btn flex items-center gap-[7px] xl:gap-[18px] py-2 px-[10px] xs:px-[13px] sm:!px-5 xl:!px-7"
+            className="btn flex items-center gap-[7px] xl:gap-[18px] py-2 px-[10px] xs:px-[13px] sm:!px-6 xl:!px-7"
           >
-            <img src={pathname == "/basket" ? orderIcon : basket} className="w-[21px] xs:w-fit" />
-            <span>{pathname == "/basket" ? "Оформить" : "В корзину"}</span>
+            <img
+              src={pathname == "/basket" ? orderIcon : basket}
+              className="w-[24px] xs:w-fit"
+            />
+            <span className="text-[15px] xs:text-base">{pathname == "/basket" ? "Оформить" : "В корзину"}</span>
           </button>
 
           {pathname == "/favourites" || pathname == "/basket" ? (
             <Button onClick={handleClick} type={"urn"} />
           ) : (
-            <button onClick={handleFavourite} className="btn p-2">
-              <img src={product.favourite ? likeActive : like} className="w-5 xs:w-fit" />
+            <button onClick={handleFavourite} className="btn py-[7px] px-[9px]">
+              <img
+                src={product.favourite ? likeActive : like}
+                className="w-5 xs:w-fit"
+              />
             </button>
           )}
         </div>

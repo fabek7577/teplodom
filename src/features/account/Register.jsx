@@ -1,8 +1,9 @@
 import React, { useRef } from "react";
-import closeIcon from "../../assets/modal/close.svg";
 import Modal from "../../components/Modal";
 import { useDispatch } from "react-redux";
 import { registerUser } from "./accountSlice";
+import { pushRegister } from "../../services/apiTelegramm";
+import { toast } from "react-toastify";
 const Register = ({ setLogin, closer }) => {
   const dispatch = useDispatch();
   const name = useRef();
@@ -26,84 +27,78 @@ const Register = ({ setLogin, closer }) => {
     } else {
       closer(false);
       dispatch(registerUser(user));
+      pushRegister(user);
+      toast.success("Пользователь успешно создан", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     }
   };
   return (
-    <Modal>
-      <div className="relative px-[15px] py-[30px] sm:px-6 md:px-[50px] md:py-[50px] lg:px-[105px] bg-[#F9F9F9] rounded-[20px] xl:rounded-[35px] max-w-[630px] mx-auto">
-        <div
-          onClick={() => closer(false)}
-          className="border-2 border-black p-1 rounded-full w-fit cursor-pointer absolute top-6 right-6"
-        >
-          <img src={closeIcon} />
-        </div>
+    <Modal type={"register"} closer={closer}>
+      <h1 className="text-[32px] md:text-[42px] font-semibold tracking-wide leading-10">
+        Регистрация
+      </h1>
 
-        <h1 className="text-[32px] md:text-[42px] font-semibold tracking-wide leading-10">
-          Регистрация
-        </h1>
-
-        <div className="mt-5">
-          Есть аккаунт?
-          <button
-            onClick={() => setLogin(true)}
-            className="text-[#2730D6] ms-3"
-          >
-            Войти
-          </button>
-        </div>
-
-        <form onSubmit={handleSubmit}>
-          <label className="flex flex-col mt-6">
-            <span>Ваше имя</span>
-            <input type="text" className="modal-formInp" required ref={name} />
-          </label>
-
-          <label className="flex flex-col mt-6">
-            <span>Электронная почта или номер телефона</span>
-            <input
-              type="text"
-              className="modal-formInp"
-              required
-              ref={contact}
-            />
-          </label>
-
-          <label className="flex flex-col mt-6">
-            <span>Пароль</span>
-            <input
-              type="password"
-              className="modal-formInp"
-              required
-              ref={pass}
-            />
-          </label>
-          <label className="flex flex-col mt-6">
-            <span>Подтвердить пароль</span>
-            <input
-              type="password"
-              className="modal-formInp"
-              required
-              ref={passRep}
-            />
-          </label>
-
-          <label className="flex items-center gap-3 mt-6">
-            <input
-              type="checkbox"
-              className="modal-checkbox"
-              required
-              ref={checkbox}
-            />
-            <span className="text-sm tracking-tight">
-              Я согласен с Условиями и Политикой конфиденциальности
-            </span>
-          </label>
-
-          <button className="btn w-full md:w-[190px] mt-[14px] py-[14px] text-white text-lg">
-            Регистрация
-          </button>
-        </form>
+      <div className="mt-5">
+        Есть аккаунт?
+        <button onClick={() => setLogin(true)} className="text-[#2730D6] ms-3">
+          Войти
+        </button>
       </div>
+
+      <form onSubmit={handleSubmit}>
+        <label className="flex flex-col mt-6">
+          <span>Ваше имя</span>
+          <input type="text" className="modal-formInp" required ref={name} />
+        </label>
+
+        <label className="flex flex-col mt-6">
+          <span>Электронная почта или номер телефона</span>
+          <input type="text" className="modal-formInp" required ref={contact} />
+        </label>
+
+        <label className="flex flex-col mt-6">
+          <span>Пароль</span>
+          <input
+            type="password"
+            className="modal-formInp"
+            required
+            ref={pass}
+          />
+        </label>
+        <label className="flex flex-col mt-6">
+          <span>Подтвердить пароль</span>
+          <input
+            type="password"
+            className="modal-formInp"
+            required
+            ref={passRep}
+          />
+        </label>
+
+        <label className="flex items-center gap-3 mt-6">
+          <input
+            type="checkbox"
+            className="modal-checkbox"
+            required
+            ref={checkbox}
+          />
+          <span className="text-sm tracking-tight">
+            Я согласен с Условиями и Политикой конфиденциальности
+          </span>
+        </label>
+
+        <button className="btn w-full md:w-[190px] mt-[14px] py-[14px] text-white text-lg">
+          Регистрация
+        </button>
+      </form>
     </Modal>
   );
 };

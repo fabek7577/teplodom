@@ -24,9 +24,9 @@ const Filter = ({ type, closer }) => {
   const baseClass =
     type == "modal"
       ? "relative max-w-[384px] lg:w-[360px] h-[670px] bg-white rounded-2xl p-5"
-      : `hidden md:inline-block w-[300px] lg:w-[360px] h-[670px] bg-white rounded-2xl p-5`;
+      : `hidden md:inline-block sticky top-10 left-0 w-[300px] lg:w-[360px] h-[670px] bg-white rounded-2xl p-5`;
   return (
-    <div className={`${baseClass}`}>
+    <div onClick={(e) => e.stopPropagation()} className={`${baseClass}`}>
       {type == "modal" && (
         <div
           onClick={() => closer(false)}

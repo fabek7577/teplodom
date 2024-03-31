@@ -15,21 +15,21 @@ const ProductCard = ({ product, sale, type }) => {
   if (type == "all") {
     return (
       <div
-        className={`${baseClass} !min-w-[188px] xs:max-w-[250px] xl:max-w-[255px] xl:!min-w-[255px] h-[314px] ${pathname == "/sale" ? "xl:!h-[420px]" : ""}`}
+        className={`${baseClass} !min-w-[188px] xs:max-w-[250px] xl:max-w-[255px] xl:!min-w-[255px] h-[314px] ${
+          pathname == "/sale" ? "xl:!h-[420px]" : ""
+        }`}
       >
         {/* is onSale */}
         {sale && (
-          <img
-            src={saleImg}
-            className="absolute -top-[10px] -left-[10px] "
-          />
+          <img src={saleImg} className="absolute -top-[10px] -left-[10px] " />
         )}
         {/* Product IMG */}
         <div className="flex items-center justify-center w-full h-[170px] xl:h-[200px]">
-          {/* <img src={product.image} alt="Product card image" className="w-full max-h-full object-contain" /> */}
-          <div className="min-w-full h-full bg-cyan-300 flex items-center justify-center text-xl">
-            IMAGE
-          </div>
+          <img
+            src={product.image}
+            alt="Product card image"
+            className="w-full max-h-full object-contain"
+          />
         </div>
         {/* Product Title */}
         <Link
@@ -73,10 +73,11 @@ const ProductCard = ({ product, sale, type }) => {
       )}
       {/* Product IMG */}
       <div className="flex items-center justify-center w-full h-[170px] xl:h-[200px]">
-        {/* <img src={product.image} alt="Product card image" className="w-full max-h-full object-contain" /> */}
-        <div className="min-w-full h-full bg-cyan-300 flex items-center justify-center text-xl">
-          IMAGE
-        </div>
+        <img
+          src={product.image}
+          alt="Product card image"
+          className="w-full max-h-full object-contain"
+        />
       </div>
       {/* Product Title */}
       <Link

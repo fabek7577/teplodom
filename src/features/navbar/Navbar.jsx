@@ -1,25 +1,31 @@
 import React, { useState } from "react";
 import logo from "../../assets/navbar/logo.svg";
 import filters from "../../assets/navbar/filters.svg";
-import sidebar from "../../assets/navbar/sidebar.svg";
+import sidebarIcon from "../../assets/navbar/sidebar.svg";
 import { Link, NavLink } from "react-router-dom";
 import BasketIcon from "./basket/BasketIcon";
 import FavouritesIcon from "./favourites/FavouritesIcon";
 import Form from "./Form";
 import Profile from "./Profile";
 import Filter from "../search/filter/Filter";
+import Sidebar from "../../components/Sidebar";
 const Navbar = () => {
   const [filter, setFilter] = useState(false);
+  const [sidebar, setSidebar] = useState(false);
   const handleFilter = () => {
     setFilter(true);
   };
   return (
     <>
       {filter && (
-        <div className="px-[15px] fixed top-0 left-0 z-50 flex items-center justify-center w-full h-screen bg-black/30">
+        <div
+          onClick={() => setFilter(false)}
+          className="px-[15px] fixed top-0 left-0 z-50 flex items-center justify-center w-full h-screen bg-black/30"
+        >
           <Filter type="modal" closer={setFilter} />
         </div>
       )}
+      {sidebar && <Sidebar closer={setSidebar} />}
       <nav className="py-5 flex flex-col gap-10">
         <div className="flex items-center justify-between flex-wrap md:flex-nowrap gap-5">
           <Link
@@ -44,7 +50,11 @@ const Navbar = () => {
           </div>
 
           <div className="flex flex-1 items-center justify-evenly gap-2 sm:gap-3 md:order-2 md:flex-none">
-            <img src={sidebar} className="nav-icon md:hidden" />
+            <img
+              onClick={() => setSidebar(true)}
+              src={sidebarIcon}
+              className="nav-icon md:hidden"
+            />
             <Form />
             <img
               src={filters}
