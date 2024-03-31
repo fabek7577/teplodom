@@ -56,7 +56,7 @@ const CardButton = ({ product, type }) => {
           >
             <img
               src={pathname == "/basket" ? orderIcon : basket}
-              className="w-[24px] xs:w-fit"
+              className="w-[21px] xs:w-fit"
             />
             <span className="text-[15px] xs:text-base">{pathname == "/basket" ? "Оформить" : "В корзину"}</span>
           </button>

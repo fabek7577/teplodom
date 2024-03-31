@@ -54,7 +54,6 @@ const ProductCard = ({ product, sale, type }) => {
             сум
           </p>
         </div>
-
         <CardButton product={product} type="all" />
       </div>
     );

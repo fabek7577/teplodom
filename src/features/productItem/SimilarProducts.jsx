@@ -6,7 +6,6 @@ import { useParams } from "react-router-dom";
 import { getCategoryProducts } from "../../services/apiProducts";
 
 const SimilarProducts = ({ currentProductCategory, currentProductId }) => {
-  const { category } = useParams();
   const { categoryProducts } = useSelector((state) => state.categories);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -26,13 +25,14 @@ const SimilarProducts = ({ currentProductCategory, currentProductId }) => {
         })}
       </div>
       <div className="flex overflow-x-scroll lg:grid grid-cols-4 xl:overflow-x-auto gap-4 py-5">
-        {categoryProducts?.map((product, i) => {
-          if (i < 4 || i > 8 || product.id == currentProductId) {
-            return null;
-          } else {
-            return <ProductCard key={product.id} product={product} />;
-          }
-        })}
+        {categoryProducts.length >= 8 &&
+          categoryProducts?.map((product, i) => {
+            if (i < 4 || i > 8 || product.id == currentProductId) {
+              return null;
+            } else {
+              return <ProductCard key={product.id} product={product} />;
+            }
+          })}
       </div>
     </div>
   );

@@ -11,9 +11,9 @@ const Button = ({ type, onClick }) => {
           setBtnActive(false);
         }}
         onMouseDown={() => setBtnActive(true)}
-        className="btn py-1 px-2 box-border !bg-transparent border-[1.5px] border-[#E1E1E1] active:ring-0 active:border-[#FF1111]"
+        className="btn py-[7px] px-[7.5px] !bg-transparent border-[1.5px] border-[#E1E1E1] active:ring-0 active:border-[#FF1111]"
       >
-        <img src={btnActive ? urnRed : urn} />
+        <img src={btnActive ? urnRed : urn} className="w-5 xs:w-fit" />
       </button>
     );
   }

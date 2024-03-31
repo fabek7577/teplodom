@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 
-const API_URL = "http://localhost:3333";
+const API_URL = "https://teplodomdata.onrender.com";
 
 export function getAccount(user) {
   return async function (dispatch) {
