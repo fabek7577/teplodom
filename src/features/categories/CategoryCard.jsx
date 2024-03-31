@@ -10,7 +10,7 @@ const CategoryCard = ({ category, type }) => {
     return (
       <div
         onClick={handleClick}
-        className="bg-white rounded-xl w-[270px] mx-auto xs:w-full h-[250px] xs:h-[210px] sm:!h-[255px] lg:!h-[265px] p-1 flex flex-col justify-evenly cursor-pointer"
+        className="bg-white rounded-xl w-[180px] mx-auto xs:w-full h-[250px] xs:h-[210px] sm:!h-[255px] lg:!h-[265px] p-1 flex flex-col justify-evenly cursor-pointer"
       >
         <div className="w-full h-[140px] md:h-[180px] lg:h-[200px] flex items-center justify-center">
           <img
