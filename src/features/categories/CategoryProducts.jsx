@@ -15,11 +15,11 @@ const CategoryProducts = () => {
   }, []);
 
   return (
-    <div className="container my-[76px]">
+    <div className="container my-8 lg:my-[76px]">
       <SectionTitle>Категория {category}</SectionTitle>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {categoryProducts?.map((product) => {
-          return <ProductCard key={product.id} product={product} />;
+          return <ProductCard key={product.id} product={product} type={"all"} />;
         })}
       </div>
     </div>
