@@ -5,6 +5,7 @@ import { Checkbox } from "@material-tailwind/react";
 import { pushOrder } from "../../services/apiTelegramm";
 import { delModals, setModal } from "../modal/modalSlice";
 const Order = ({ title }) => {
+  const dispatch = useDispatch();
   const { name } = useSelector((state) => state.account.user);
   const [inputs, setInputs] = useState({
     quantity: 0,
@@ -15,7 +16,6 @@ const Order = ({ title }) => {
     locality: "",
     address: "",
   });
-  const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
     const { quantity, address, city, locality, name, number, region } = inputs;
