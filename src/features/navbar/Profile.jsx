@@ -1,17 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import person from "../../assets/navbar/person.svg";
-import Authentication from "../account/Authentication";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setModal } from "../modal/modalSlice";
 
 const Profile = () => {
   const { user } = useSelector((state) => state.account);
-  const [auth, setAuth] = useState(false);
+  const dispatch = useDispatch();
   const handleClick = () => {
-    !user?.name && setAuth(true);
+    !user?.name && dispatch(setModal("auth"));
   };
   return (
     <>
-      {auth && <Authentication closer={setAuth} />}
       <button
         onClick={handleClick}
         className="nav-icon flex gap-4 lg:rounded-2xl"

@@ -1,41 +1,37 @@
 import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { getProduct } from "../../services/apiProducts";
-import payIcon from "../../assets/productDetail/pay.svg";
-import clock from "../../assets/productDetail/clock.svg";
-import basket from "../../assets/productDetail/basket.svg";
-import like from "../../assets/productDetail/like.svg";
-import payIconWHITE from "../../assets/productDetail/payWHITE.svg";
-import clockWHITE from "../../assets/productDetail/clockWHITE.svg";
-import basketWHITE from "../../assets/productDetail/basketWHITE.svg";
-import likeWHITE from "../../assets/productDetail/likeWHITE.svg";
 import SimilarProducts from "./SimilarProducts";
 import { useDispatch } from "react-redux";
 import { addToBasket } from "../navbar/basket/basketSlice";
 import { addFavourite } from "../../productsSlice";
 import Order from "../order/Order";
+import BasketIcon from "../../assets/productDetail/BasketIcon";
+import LikeIcon from "../../assets/productDetail/LikeIcon";
+import ClockIcon from "../../assets/productDetail/ClockIcon";
+import PayIcon from "../../assets/productDetail/PayIcon";
+import { setModal } from "../modal/modalSlice";
+
 const ProductDetail = () => {
   const dispatch = useDispatch();
-  const product = useLoaderData();
+  const [product, setProduct] = useState(useLoaderData());
   const isOnSale = product.discountPercentage >= 15;
   const discount = Math.floor(
     product.price * (product.discountPercentage / 100)
   );
   const price = product.price;
-
   const [counter, setCounter] = useState(1);
-  const [order, setOrder] = useState();
 
   const handleBasket = () => {
     dispatch(addToBasket(product));
   };
   const handleFavourite = () => {
     dispatch(addFavourite(product));
+    setProduct((prev) => (prev = { ...prev, favourite: true }));
   };
 
   return (
     <>
-      {order && <Order closer={setOrder} title={product.title} quantity={counter} />}
       <div className="container my-14">
         <div className="bg-white px-4 py-6 rounded-xl border lg:border-none">
           <div className="lg:flex items-center justify-between gap-8">
@@ -72,33 +68,13 @@ const ProductDetail = () => {
                   </p>
                 )}
               </div>
-              <div className="flex items-center gap-4 mt-8">
-                <img
-                  src={payIcon}
-                  onClick={() => setOrder(true)}
-                  onMouseEnter={(e) => (e.target.src = payIconWHITE)}
-                  onMouseLeave={(e) => (e.target.src = payIcon)}
-                  className="productDetail-icon"
-                />
-                <img
-                  src={clock}
-                  onMouseEnter={(e) => (e.target.src = clockWHITE)}
-                  onMouseLeave={(e) => (e.target.src = clock)}
-                  className="productDetail-icon"
-                />
-                <img
-                  src={basket}
-                  onClick={handleBasket}
-                  onMouseEnter={(e) => (e.target.src = basketWHITE)}
-                  onMouseLeave={(e) => (e.target.src = basket)}
-                  className="productDetail-icon"
-                />
-                <img
-                  src={like}
+              <div className="flex items-center gap-3 xs:gap-4 mt-8">
+                <PayIcon onClick={() => dispatch(setModal("order"))} />
+                <ClockIcon />
+                <BasketIcon onClick={handleBasket} />
+                <LikeIcon
                   onClick={handleFavourite}
-                  onMouseEnter={(e) => (e.target.src = likeWHITE)}
-                  onMouseLeave={(e) => (e.target.src = like)}
-                  className="productDetail-icon"
+                  isFavourite={product.favourite}
                 />
                 <div className="flex items-center border-2 rounded-xl md:rounded-lg divide-x-2">
                   <span

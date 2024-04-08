@@ -11,7 +11,7 @@ const OurAdvantages = () => {
   return (
     <section className="mt-[50px]">
       <SectionTitle>Наши преимущества</SectionTitle>
-      <div className="flex flex-wrap gap-10 justify-center text-center">
+      <div className="flex flex-wrap gap-10 justify-center text-center lg:text-start">
         <div className="ourAdvantages">
           <div className="bg-blue-100 ourAdvantages-icon">
             <img src={star} />

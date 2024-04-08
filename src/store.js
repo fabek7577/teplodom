@@ -5,6 +5,7 @@ import basketReducer from "./features/navbar/basket/basketSlice";
 import favouritesReducer from "./features/navbar/favourites/favouritesSlice";
 import accountReducer from "./features/account/accountSlice";
 import filterReducer from "./features/search/filter/filterSlice";
+import modalReducer from "./features/modal/modalSlice";
 
 const store = configureStore({
   reducer: {
@@ -13,7 +14,8 @@ const store = configureStore({
     basket: basketReducer,
     favourites: favouritesReducer,
     account: accountReducer,
-    filter: filterReducer
+    filter: filterReducer,
+    modals: modalReducer,
   },
 });
 export default store;

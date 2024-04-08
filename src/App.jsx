@@ -20,6 +20,7 @@ import Search from "./features/search/Search";
 import Contacts from "./components/Contacts";
 import ForMasters from "./components/ForMasters";
 import UserAgreement from "./components/UserAgreement";
+import OrderProduct from "./features/order/OrderProduct";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -78,6 +79,10 @@ const App = () => {
         {
           path: "returnProduct",
           element: <ReturnProduct />,
+        },
+        {
+          path: "orderProduct",
+          element: <OrderProduct />,
         },
         {
           path: "sale",

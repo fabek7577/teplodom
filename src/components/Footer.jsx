@@ -7,6 +7,7 @@ import facebook from "../assets/footer/facebook.svg";
 import enth from "../assets/footer/enth.svg";
 import loc from "../assets/footer/loc.svg";
 import { Link } from "react-router-dom";
+import { Divider } from "@mui/material";
 
 const Footer = () => {
   const date = new Date();
@@ -37,7 +38,7 @@ const Footer = () => {
         <div className="flex flex-col gap-6 md:gap-1">
           <p className="font-bold md:mb-4">Быстрые ссылки</p>
           <Link to={"forMasters"}>Мастерам</Link>
-          <Link to={"fastPurchase"}>Оформление заказа</Link>
+          <Link to={"orderProduct"}>Оформление заказа</Link>
           <Link to={"userAgreement"}>Пользовательское соглашение</Link>
         </div>
 
@@ -71,9 +72,17 @@ const Footer = () => {
           ул.Уста Ширин, рынок <br /> Джамий, дом 134
         </span>
       </div>
-      <div className="absolute bottom-0 left-2/4 -translate-x-2/4 w-full flex justify-center py-4 lg:pb-4">
+      <Divider
+        orientation="horizontal"
+        sx={{
+          "&::before, &::after": {
+            borderColor: "white",
+          },
+        }}
+        className="absolute bottom-0 left-2/4 -translate-x-2/4 w-full flex justify-center py-4 lg:pb-4"
+      >
         © {date.getFullYear()} Teplodom. Все права защищены
-      </div>
+      </Divider>
     </footer>
   );
 };

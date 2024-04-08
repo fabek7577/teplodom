@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import basket from "../assets/card/basket.svg";
 import orderIcon from "../assets/card/order.svg";
@@ -11,21 +11,18 @@ import {
   delFromBasket,
 } from "../features/navbar/basket/basketSlice";
 import Button from "./Button";
-import Authentication from "../features/account/Authentication";
-import Order from "../features/order/Order";
+import { setModal } from "../features/modal/modalSlice";
 
 const CardButton = ({ product, type }) => {
   const { user } = useSelector((state) => state.account);
   const dispatch = useDispatch();
-  const [auth, setAuth] = useState(false);
-  const [order, setOrder] = useState(false);
   const { pathname } = useLocation();
 
   const handleBasket = () => {
     if (pathname == "/basket") {
-      if (user) {
-        setOrder(true);
-      } else setAuth(true);
+      if (user.name) {
+        dispatch(setModal("order"));
+      } else dispatch(setModal("auth"));
     } else {
       dispatch(addToBasket(product));
     }
@@ -47,8 +44,6 @@ const CardButton = ({ product, type }) => {
   if (type == "all") {
     return (
       <>
-        {order && <Order closer={setOrder} title={product.title} />}
-        {auth && <Authentication closer={setAuth} />}
         <div className="flex justify-between mt-[18px]">
           <button
             onClick={handleBasket}
@@ -58,7 +53,9 @@ const CardButton = ({ product, type }) => {
               src={pathname == "/basket" ? orderIcon : basket}
               className="w-[21px] xs:w-fit"
             />
-            <span className="text-[15px] xs:text-base">{pathname == "/basket" ? "Оформить" : "В корзину"}</span>
+            <span className="text-[15px] xs:text-base">
+              {pathname == "/basket" ? "Оформить" : "В корзину"}
+            </span>
           </button>
 
           {pathname == "/favourites" || pathname == "/basket" ? (
@@ -78,8 +75,6 @@ const CardButton = ({ product, type }) => {
 
   return (
     <>
-      {order && <Order closer={setOrder} title={product.title} />}
-      {auth && <Authentication closer={setAuth} />}
       <div className="flex justify-between mt-[18px]">
         <button
           onClick={handleBasket}

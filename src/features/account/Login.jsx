@@ -2,7 +2,8 @@ import React, { useRef } from "react";
 import Modal from "../../components/Modal";
 import { useDispatch } from "react-redux";
 import { getAccount } from "../../services/apiProducts";
-const Login = ({ closer }) => {
+import { delModals } from "../modal/modalSlice";
+const Login = () => {
   const dispatch = useDispatch();
   const contact = useRef();
   const pass = useRef();
@@ -13,10 +14,10 @@ const Login = ({ closer }) => {
       password: pass.current.value,
     };
     dispatch(getAccount(loginer));
-    closer(false);
+    dispatch(delModals());
   };
   return (
-    <Modal type={"login"} closer={closer}>
+    <Modal type={"login"}>
       <h1 className="text-[32px] md:text-[42px] font-semibold tracking-wide">
         Войти
       </h1>
@@ -30,10 +31,6 @@ const Login = ({ closer }) => {
           <span>Пароль</span>
           <input type="password" className="modal-formInp" ref={pass} />
         </label>
-
-        <a className="text-[#2730D6] mt-5 hover:underline block">
-          Забыли свой пароль ?
-        </a>
         <button className="btn w-full md:w-[190px] mt-6 py-[14px] text-white text-lg">
           Войти
         </button>

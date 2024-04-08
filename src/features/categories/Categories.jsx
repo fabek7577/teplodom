@@ -15,7 +15,7 @@ const Categories = () => {
       <SectionTitle to={"categories"}>
         Категории <span>Все категории →</span>
       </SectionTitle>
-      <div className="flex overflow-x-scroll xl:justify-between xl:overflow-x-auto gap-4">
+      <div className="flex overflow-x-scroll xl:justify-between xl:overflow-x-auto gap-4 pb-2">
         {categories?.map((category, i) => {
           if (i > 6) {
             return null;

@@ -3,7 +3,8 @@ import Footer from "../components/Footer";
 import { Outlet } from "react-router-dom";
 import Navbar from "../features/navbar/Navbar";
 import { ToastContainer } from "react-toastify";
-import Sidebar from "../components/Sidebar";
+import Modals from "./Modals";
+
 
 const RootLayout = () => {
   return (
@@ -21,6 +22,7 @@ const RootLayout = () => {
         pauseOnHover
         theme="light"
       />
+      <Modals />
       <div className="min-h-screen flex flex-col bg-[#FAFAFA]">
         <div className="container stickyy top-0 left-0 z-50 bg-[#FAFAFA]">
           <Navbar />

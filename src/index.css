@@ -40,7 +40,7 @@ a.nav-sidebar.active {
   @apply flex flex-col items-center gap-5 md:flex-row lg:mx-5;
 }
 .productDetail-icon {
-  @apply flex items-center justify-center border-2 border-black rounded-lg p-2 hover:bg-yellow hover:border-yellow active:ring-2 outline-none ring-yellow ring-offset-2 cursor-pointer md:w-[50px] md:h-[50px] xl:w-[64px] xl:h-[64px];
+  @apply flex items-center justify-center border-2 border-black rounded-lg p-2 hover:bg-yellow hover:border-yellow active:ring-2 outline-none ring-yellow ring-offset-2 cursor-pointer min-w-[40px] h-[40px] md:w-[50px] md:h-[50px] xl:w-[64px] xl:h-[64px];
 }
 .carousel {
   @apply w-full h-full p-2 flex text-white items-center gap-5 justify-between px-10 overflow-y-hidden;
@@ -62,9 +62,6 @@ input::-webkit-inner-spin-button {
 .order-inp {
   @apply py-[9px] px-3 lg:px-5 rounded-md lg:rounded-[10px] mt-3 lg:mt-[10px] border border-black/20;
 }
-.modal-checkbox {
-  @apply w-[18px] h-[18px] p-[3px] border border-black accent-[#90C049];
-}
 .contacts-icon {
   @apply p-5 lg:p-6 border-[3px] border-yellow rounded-full w-fit flex items-center justify-center mx-auto;
 }
@@ -79,4 +76,34 @@ input::-webkit-inner-spin-button {
   background-color: transparent !important;
   color: #ef8100 !important;
   font-size: 20px !important;
+}
+.svg__hover--path:hover path:first-child {
+  fill: white;
+}
+.svg__hover--path:hover path:nth-child(n + 2) {
+  stroke: white;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  border-radius: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(176, 176, 176);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
 }

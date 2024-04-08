@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { updateFavourites } from "./services/apiProducts";
+import { toast } from "react-toastify";
 
 const initialState = {
   products: [],
@@ -22,6 +23,16 @@ const productsSlice = createSlice({
           const newObj = { ...payload, favourite: true };
           state.products[i] = newObj;
           updateFavourites(newObj);
+          toast.success("Добавлено в избранное", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
         }
       });
     },

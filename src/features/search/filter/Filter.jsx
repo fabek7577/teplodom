@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import SectionTitle from "../../../ui/SectionTitle";
 import { useDispatch, useSelector } from "react-redux";
 import { getBrands, getCategories } from "../../../services/apiProducts";
 import FormSelect from "./FormSelect";

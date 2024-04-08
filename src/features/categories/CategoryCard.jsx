@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const CategoryCard = ({ category, type }) => {
   const navigate = useNavigate();
@@ -18,7 +18,9 @@ const CategoryCard = ({ category, type }) => {
             className="w-full max-h-full object-contain"
           />
         </div>
-        <p className="text-center capitalize h-[48px] flex items-center justify-center"><span className="line-clamp-2">{category.title}</span></p>
+        <p className="text-center capitalize h-[48px] flex items-center justify-center">
+          <span className="line-clamp-2">{category.title}</span>
+        </p>
       </div>
     );
   }
@@ -30,7 +32,9 @@ const CategoryCard = ({ category, type }) => {
       <div className="flex flex-1 items-center justify-center w-full h-full">
         <img src={category.image} className="max-w-[110px]" />
       </div>
-      <p className="text-center capitalize min-h-[48px] flex items-center justify-center"><span className="line-clamp-2 w-full">{category.title}</span></p>
+      <p className="text-center capitalize min-h-[48px] flex items-center justify-center">
+        <span className="line-clamp-2 w-full">{category.title}</span>
+      </p>
     </div>
   );
 };

@@ -1,7 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import SectionTitle from "../../../ui/SectionTitle";
-import ProductCard from "../../../components/ProductCard";
 import PagenatiedItems from "../../../components/PagenatiedItems";
 
 const FavouritesProductsList = () => {

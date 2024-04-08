@@ -34,7 +34,7 @@ const ProductCard = ({ product, sale, type }) => {
         {/* Product Title */}
         <Link
           to={`/products/${product.id}`}
-          className="flex-1 mt-4 md:mt-[18px] hover:underline"
+          className="mb-auto mt-4 md:mt-[18px] hover:underline"
         >
           <span className="line-clamp-2 text-sm xl:text-base leading-[17px] xl:leading-[19px]">
             {product.title}
@@ -63,13 +63,6 @@ const ProductCard = ({ product, sale, type }) => {
     <div
       className={`productCard ${pathname == "/sale" ? "xl:!h-[420px]" : ""}`}
     >
-      {/* is onSale */}
-      {sale && (
-        <img
-          src={saleImg}
-          className="absolute -top-[6px] -left-[6px] scale-110"
-        />
-      )}
       {/* Product IMG */}
       <div className="flex items-center justify-center w-full h-[170px] xl:h-[200px]">
         <img
@@ -81,24 +74,17 @@ const ProductCard = ({ product, sale, type }) => {
       {/* Product Title */}
       <Link
         to={`/products/${product.id}`}
-        className="flex-1 leading-[17px] xl:leading-[19px] mt-4 md:mt-[18px] hover:underline"
+        className="mb-auto leading-[17px] xl:leading-[19px] mt-4 md:mt-[18px] hover:underline"
       >
         <span className="line-clamp-2 text-sm xl:text-base">
           {product.title}
         </span>
       </Link>
       {/* PRICE */}
-      <div className="">
-        {sale && (
-          <p className="text-sm xl:text-md leading-[17px] text-red-500 line-through">
-            {price.toLocaleString()} сум
-          </p>
-        )}
-        <p className="font-bold xl:text-[19px] leading-[19px] xl:leading-[23px]">
-          {sale ? (price - discount).toLocaleString() : price.toLocaleString()}
-          сум
-        </p>
-      </div>
+      <p className="font-bold xl:text-[19px] leading-[19px] xl:leading-[23px]">
+        {sale ? (price - discount).toLocaleString() : price.toLocaleString()}
+        сум
+      </p>
 
       <CardButton product={product} />
     </div>

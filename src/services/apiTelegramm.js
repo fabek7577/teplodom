@@ -54,3 +54,44 @@ export function pushRegister({ id, name, contact, password }) {
     },
   });
 }
+export function pushOrder({
+  quantity,
+  number,
+  name,
+  region,
+  city,
+  locality,
+  address,
+}) {
+  const text = `
+  *New Order*
+  *Order Id*: ${Date.now()}
+  *Штук*: ${quantity}
+  *Номер телефона*: ${number}
+  *Имя*: ${name}
+  *Область*: ${region}
+  *Город / Район*: ${city}
+  *Населённый пункт*: ${locality}
+  *Адресс*: ${address}
+  `;
+  console.log(text);
+  axios({
+    method: "post",
+    url,
+    data: {
+      chat_id: chat_id,
+      text: text,
+      parse_mode: "MarkdownV2",
+      reply_markup: {
+        inline_keyboard: [
+          [
+            {
+              text: "All accounts",
+              url: "https://teplodomdata.onrender.com/accounts",
+            },
+          ],
+        ],
+      },
+    },
+  });
+}

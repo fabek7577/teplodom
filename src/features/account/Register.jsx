@@ -4,7 +4,9 @@ import { useDispatch } from "react-redux";
 import { registerUser } from "./accountSlice";
 import { pushRegister } from "../../services/apiTelegramm";
 import { toast } from "react-toastify";
-const Register = ({ setLogin, closer }) => {
+import { Checkbox } from "@material-tailwind/react";
+import { delModals } from "../modal/modalSlice";
+const Register = ({ setLogin }) => {
   const dispatch = useDispatch();
   const name = useRef();
   const contact = useRef();
@@ -14,7 +16,6 @@ const Register = ({ setLogin, closer }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const user = {
       id: Date.now(),
       name: name.current.value,
@@ -25,7 +26,7 @@ const Register = ({ setLogin, closer }) => {
     if (pass.current.value != passRep.current.value) {
       alert("Пароли не совпадают");
     } else {
-      closer(false);
+      dispatch(delModals());
       dispatch(registerUser(user));
       pushRegister(user);
       toast.success("Пользователь успешно создан", {
@@ -41,7 +42,7 @@ const Register = ({ setLogin, closer }) => {
     }
   };
   return (
-    <Modal type={"register"} closer={closer}>
+    <Modal type={"register"}>
       <h1 className="text-[32px] md:text-[42px] font-semibold tracking-wide leading-10">
         Регистрация
       </h1>
@@ -84,11 +85,13 @@ const Register = ({ setLogin, closer }) => {
         </label>
 
         <label className="flex items-center gap-3 mt-6">
-          <input
-            type="checkbox"
-            className="modal-checkbox"
+          <Checkbox
+            inputRef={checkbox}
             required
-            ref={checkbox}
+            color="green"
+            ripple={false}
+            className="rounded-[4px] hover:before:opacity-0"
+            containerProps={{ className: "p-0" }}
           />
           <span className="text-sm tracking-tight">
             Я согласен с Условиями и Политикой конфиденциальности

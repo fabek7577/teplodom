@@ -1,6 +1,5 @@
 import React from "react";
 import SectionTitle from "../../../ui/SectionTitle";
-import ProductCard from "../../../components/ProductCard";
 import { useSelector } from "react-redux";
 import PagenatiedItems from "../../../components/PagenatiedItems";
 
