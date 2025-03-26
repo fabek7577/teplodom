@@ -58,10 +58,18 @@ const Footer = () => {
             <img src={call} /> +998 95 111 29 16
           </span>
           <span className="flex gap-7">
-            <img src={telega} className="cursor-pointer" />
-            <img src={insta} className="cursor-pointer" />
-            <img src={facebook} className="cursor-pointer" />
-            <img src={enth} className="cursor-pointer" />
+            <Link to={"https://t.me/teplodomuz"} target="blank">
+              <img src={telega} className="cursor-pointer" />
+            </Link>
+            <Link to={"https://www.instagram.com"} target="blank">
+              <img src={insta} className="cursor-pointer" />
+            </Link>
+            <Link to={"https://www.facebook.com"} target="blank">
+              <img src={facebook} className="cursor-pointer" />
+            </Link>
+            <Link to={"/"} target="blank">
+              <img src={enth} className="cursor-pointer" />
+            </Link>
           </span>
         </div>
       </div>
